@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Maison Céleste — Boutique mode femme à Lyon</title>
+<meta name="description" content="Boutique de mode féminine à Lyon. Pièces sélectionnées avec soin. Ouvert lun–sam 10h–19h. ☎ 04 72 00 00 00"/>
+<link rel="canonical" href="https://maisoncéleste.fr/"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Maison Céleste","telephone":"+33472000000","address":{"@type":"PostalAddress","streetAddress":"8 rue Auguste Comte","addressLocality":"Lyon","postalCode":"69002","addressCountry":"FR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"19:00"}]}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --cream:#FAF7F2;
+  --cream2:#F2EDE4;
+  --gold:#C9A84C;
+  --gold2:#E8C97A;
+  --ink:#1A1612;
+  --ink2:#5C5045;
+  --rose:#E8B4B8;
+  --border:rgba(26,22,18,.1);
+  --r:3px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* ── NAV ── */
+#nav{
+  position:sticky;top:0;z-index:200;
+  background:var(--cream);
+  border-bottom:1px solid var(--border);
+  padding:0 5vw;
+}
+.nav-inner{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;height:72px;
+}
+.nav-left{display:flex;gap:2rem;align-items:center}
+.nav-right{display:flex;gap:1.5rem;justify-content:flex-end;align-items:center}
+.nav-link{
+  font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);
+  transition:color .2s;position:relative;
+}
+.nav-link::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;
+  background:var(--gold);transition:width .3s;
+}
+.nav-link:hover{color:var(--ink)}
+.nav-link:hover::after{width:100%}
+.nav-logo{
+  font-family:'Playfair Display',serif;font-size:1.6rem;font-style:italic;
+  color:var(--ink);letter-spacing:.02em;text-align:center;white-space:nowrap;
+}
+.nav-logo span{color:var(--gold)}
+.nav-phone{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-size:.82rem;font-weight:500;color:var(--ink);
+  letter-spacing:.04em;transition:color .2s;
+}
+.nav-phone:hover{color:var(--gold)}
+.nav-phone svg{color:var(--gold);flex-shrink:0}
+
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.3rem}
+.burger span{width:22px;height:1px;background:var(--ink);display:block;transition:all .3s}
+.burger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+
+/* ── MOBILE MENU ── */
+.mob-menu{
+  display:none;position:fixed;inset:0;background:var(--cream);z-index:190;
+  flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:'Playfair Display',serif;font-size:2rem;font-style:italic;color:var(--ink)}
+.mob-menu .nav-phone{font-family:'Jost',sans-serif;font-size:1.1rem;font-style:normal;margin-top:.5rem}
+
+/* ── HERO ── */
+#hero{position:relative;height:90svh;display:flex;overflow:hidden}
+.hero-col{flex:1;position:relative;overflow:hidden}
+.hero-col img{width:100%;height:100%;object-fit:cover;transition:transform 9s ease}
+.hero-col:hover img{transform:scale(1.06)}
+.hero-col:nth-child(2){flex:1.3}
+.hero-col:nth-child(3){flex:.9}
+.hero-col::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 40%,rgba(26,22,18,.45));
+}
+.hero-col+.hero-col{border-left:2px solid rgba(201,168,76,.5)}
+.hero-text{
+  position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);
+  z-index:10;text-align:center;white-space:nowrap;pointer-events:none;
+}
+.hero-kicker{
+  display:inline-block;
+  font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);margin-bottom:.8rem;
+}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.6rem,5vw,5rem);font-weight:400;color:#fff;line-height:1.05;
+}
+.hero-title em{font-style:italic;color:var(--gold2)}
+.hero-btn{
+  pointer-events:all;display:inline-block;margin-top:1.5rem;
+  border:1px solid rgba(255,255,255,.6);color:#fff;
+  padding:.65rem 2rem;border-radius:100px;
+  font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+  backdrop-filter:blur(4px);background:rgba(255,255,255,.08);
+  transition:background .25s,border-color .25s,color .25s;
+}
+.hero-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.hero-tag{
+  position:absolute;top:1.5rem;right:1.5rem;z-index:10;
+  background:var(--gold);color:var(--ink);
+  font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  padding:.35rem .9rem;border-radius:100px;
+}
+
+/* ── MARQUEE ── */
+.marquee-wrap{
+  overflow:hidden;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  background:var(--ink);
+  padding:.8rem 0;
+}
+.marquee-track{
+  display:flex;width:max-content;
+  animation:marquee 32s linear infinite;
+}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{
+  display:inline-flex;align-items:center;gap:.7rem;
+  padding:0 1.5rem;white-space:nowrap;
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(250,247,242,.5);
+}
+.marquee-sep{color:var(--gold);font-size:.75rem}
+
+/* ── SECTION HELPERS ── */
+.section-tag{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.75rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;line-height:1.15}
+.section-title em{font-style:italic;color:var(--gold)}
+
+/* ── COUPS DE CŒUR ── */
+#coups{padding:5rem 5vw}
+.coups-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.5rem;gap:2rem;flex-wrap:wrap}
+.coups-sub{font-size:.85rem;color:var(--ink2);max-width:30ch;line-height:1.75;text-align:right}
+.coups-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  grid-template-rows:auto auto;gap:.75rem;
+}
+.coup{position:relative;overflow:hidden;border-radius:var(--r);background:var(--cream2);cursor:pointer}
+.coup:nth-child(1){grid-row:span 2}
+.coup:nth-child(4){grid-row:span 2}
+.coup img{width:100%;height:100%;min-height:240px;object-fit:cover;transition:transform .7s cubic-bezier(.25,.46,.45,.94)}
+.coup:hover img{transform:scale(1.08)}
+.coup-info{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:2.5rem 1.1rem .9rem;
+  background:linear-gradient(transparent,rgba(26,22,18,.6));
+  opacity:0;transform:translateY(6px);transition:all .35s;
+}
+.coup:hover .coup-info{opacity:1;transform:none}
+.coup-name{font-family:'Playfair Display',serif;font-style:italic;color:#fff;font-size:1rem}
+.coup-price{font-size:.78rem;color:var(--gold2);margin-top:.2rem}
+.coup-badge{
+  position:absolute;top:.8rem;right:.8rem;
+  background:rgba(255,255,255,.9);border-radius:50%;
+  width:32px;height:32px;display:flex;align-items:center;justify-content:center;
+  color:var(--rose);font-size:.85rem;opacity:0;transition:opacity .3s;
+}
+.coup:hover .coup-badge{opacity:1}
+
+/* ── BANNIÈRE HISTOIRE ── */
+#banniere{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:55vh;margin:0 5vw;
+  border:1px solid var(--border);border-radius:6px;overflow:hidden;
+}
+.ban-img{overflow:hidden}
+.ban-img img{width:100%;height:100%;object-fit:cover;transition:transform 8s ease}
+.ban-img:hover img{transform:scale(1.05)}
+.ban-text{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:4rem 4rem 4rem 3.5rem;background:var(--ink);color:var(--cream);
+}
+.ban-text .section-tag{color:var(--gold2)}
+.ban-text .section-title{color:#fff}
+.ban-text .section-title em{color:var(--gold2)}
+.ban-body{margin-top:1.25rem;color:rgba(250,247,242,.55);font-size:.9rem;line-height:1.9;max-width:36ch}
+.ban-divider{width:36px;height:1px;background:var(--gold);margin:2rem 0}
+.ban-facts{display:flex;gap:2.5rem}
+.ban-fact-num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold2);display:block}
+.ban-fact-lbl{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,247,242,.35)}
+
+/* ── INFOS / NAP ── */
+#infos{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:0;border-top:1px solid var(--border);margin-top:5rem;
+}
+.info-cell{padding:3.5rem 4vw;border-right:1px solid var(--border)}
+.info-cell:last-child{border-right:none}
+.info-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block}
+.info-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:400;margin-bottom:.75rem}
+.info-body{font-size:.87rem;color:var(--ink2);line-height:1.9}
+.info-body a{color:var(--ink);border-bottom:1px solid var(--border);transition:border-color .2s,color .2s}
+.info-body a:hover{border-color:var(--gold);color:var(--gold)}
+.call-number{
+  display:flex;align-items:center;gap:.6rem;margin-top:1.25rem;
+  font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:400;
+  color:var(--ink);transition:color .2s;
+  border-bottom:1px solid var(--border);padding-bottom:1rem;
+}
+.call-number:hover{color:var(--gold)}
+.call-number svg{color:var(--gold);flex-shrink:0;width:20px;height:20px}
+.call-note{margin-top:.75rem;font-size:.82rem;color:var(--ink2);line-height:1.75}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--ink);color:rgba(250,247,242,.45);
+  padding:1.75rem 5vw;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+  font-size:.75rem;letter-spacing:.06em;
+}
+.footer-logo{font-family:'Playfair Display',serif;font-style:italic;color:var(--cream);font-size:1.1rem}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{transition:color .2s}
+.footer-links a:hover{color:var(--gold2)}
+
+/* ── ANIMATIONS ── */
+.fade{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.fade.in{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .nav-left,.nav-right .nav-link{display:none}
+  .nav-right .nav-phone{display:none}
+  .burger{display:flex}
+  .nav-inner{grid-template-columns:auto 1fr auto}
+  .nav-logo{text-align:left}
+
+  #hero{height:70svh}
+  .hero-col:nth-child(2),.hero-col:nth-child(3){display:none}
+  .hero-col:nth-child(1){flex:1;width:100%}
+  .hero-col::after{background:linear-gradient(transparent 30%,rgba(26,22,18,.6))}
+  .hero-text{white-space:normal;width:90%;left:5%;transform:none;text-align:left}
+
+  .coups-grid{grid-template-columns:1fr 1fr}
+  .coup:nth-child(1),.coup:nth-child(4){grid-row:span 1}
+
+  #banniere{grid-template-columns:1fr;margin:0}
+  .ban-img{min-height:50vw}
+  .ban-text{padding:3rem 5vw}
+
+  #infos{grid-template-columns:1fr}
+  .info-cell{border-right:none;border-bottom:1px solid var(--border)}
+  .info-cell:last-child{border-bottom:none}
+}
+@media(max-width:540px){
+  .coups-grid{grid-template-columns:1fr}
+  .ban-facts{flex-direction:column;gap:1.5rem}
+  .coups-sub{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <ul class="nav-left">
+      <li><a href="#coups" class="nav-link">Collection</a></li>
+      <li><a href="#coups" class="nav-link">Cérémonie</a></li>
+      <li><a href="#coups" class="nav-link">Accessoires</a></li>
+    </ul>
+    <a href="#hero" class="nav-logo">Maison <span>Céleste</span></a>
+    <div class="nav-right">
+      <a href="#banniere" class="nav-link">Notre histoire</a>
+      <a href="#infos" class="nav-link">Adresse</a>
+      <a href="tel:+33472000000" class="nav-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        04 72 00 00 00
+      </a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#coups" class="mob">Collection</a>
+  <a href="#coups" class="mob">Cérémonie</a>
+  <a href="#coups" class="mob">Accessoires</a>
+  <a href="#banniere" class="mob">Notre histoire</a>
+  <a href="#infos" class="mob">Adresse</a>
+  <a href="tel:+33472000000" class="nav-phone mob">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    04 72 00 00 00
+  </a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-col">
+    <img src="photo-hero-1.jpg" alt="Boutique Maison Céleste — mode femme Lyon" width="800" height="1100"/>
+  </div>
+  <div class="hero-col">
+    <img src="photo-hero-2.jpg" alt="Collection printemps été Maison Céleste Lyon" width="900" height="1100"/>
+    <span class="hero-tag">Nouveautés Printemps</span>
+  </div>
+  <div class="hero-col">
+    <img src="photo-hero-3.jpg" alt="Accessoires mode femme Maison Céleste Lyon" width="700" height="1100"/>
+  </div>
+  <div class="hero-text">
+    <span class="hero-kicker">Boutique mode femme · Lyon</span>
+    <h1 class="hero-title">Le style,<br/><em>tout simplement.</em></h1>
+    <a href="#coups" class="hero-btn">Découvrir la collection</a>
+  </div>
+</section>
+
+<!-- MARQUEE DÉFILANT -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Pièces sélectionnées avec soin <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Mode féminine <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Boutique indépendante <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Nouvelle collection disponible <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Accessoires &amp; bijoux <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Tenues de cérémonie <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Lyon · Rue Auguste Comte <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Ouvert lun–sam 10h–19h <span class="marquee-sep">✦</span></span>
+    <!-- Dupliqué pour la boucle infinie -->
+    <span class="marquee-item">Pièces sélectionnées avec soin <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Mode féminine <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Boutique indépendante <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Nouvelle collection disponible <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Accessoires &amp; bijoux <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Tenues de cérémonie <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Lyon · Rue Auguste Comte <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Ouvert lun–sam 10h–19h <span class="marquee-sep">✦</span></span>
+  </div>
+</div>
+
+<!-- COUPS DE CŒUR -->
+<section id="coups">
+  <div class="coups-head fade">
+    <div>
+      <span class="section-tag">Sélection du moment</span>
+      <h2 class="section-title">Nos coups<br/>de <em>cœur</em></h2>
+    </div>
+    <p class="coups-sub">Des pièces choisies une à une, pour vous accompagner du matin au soir.</p>
+  </div>
+  <div class="coups-grid">
+    <div class="coup fade">
+      <img src="photo-1.jpg" alt="Robe boutique Maison Céleste Lyon mode femme" loading="lazy" width="600" height="900"/>
+      <div class="coup-badge">♥</div>
+      <div class="coup-info">
+        <div class="coup-name">Robe Capucine</div>
+        <div class="coup-price">79 €</div>
+      </div>
+    </div>
+    <div class="coup fade">
+      <img src="photo-2.jpg" alt="Chemisier Maison Céleste boutique Lyon" loading="lazy" width="600" height="480"/>
+      <div class="coup-badge">♥</div>
+      <div class="coup-info">
+        <div class="coup-name">Chemisier Iris</div>
+        <div class="coup-price">55 €</div>
+      </div>
+    </div>
+    <div class="coup fade">
+      <img src="photo-3.jpg" alt="Jupe collection printemps boutique Lyon" loading="lazy" width="600" height="480"/>
+      <div class="coup-badge">♥</div>
+      <div class="coup-info">
+        <div class="coup-name">Jupe Violette</div>
+        <div class="coup-price">49 €</div>
+      </div>
+    </div>
+    <div class="coup fade">
+      <img src="photo-4.jpg" alt="Ensemble mode femme boutique Maison Céleste" loading="lazy" width="600" height="900"/>
+      <div class="coup-badge">♥</div>
+      <div class="coup-info">
+        <div class="coup-name">Ensemble Pivoine</div>
+        <div class="coup-price">135 €</div>
+      </div>
+    </div>
+    <div class="coup fade">
+      <img src="photo-5.jpg" alt="Pull maille douce boutique Lyon mode femme" loading="lazy" width="600" height="480"/>
+      <div class="coup-badge">♥</div>
+      <div class="coup-info">
+        <div class="coup-name">Pull Rosée</div>
+        <div class="coup-price">65 €</div>
+      </div>
+    </div>
+    <div class="coup fade">
+      <img src="photo-6.jpg" alt="Sac accessoire boutique Maison Céleste Lyon" loading="lazy" width="600" height="480"/>
+      <div class="coup-badge">♥</div>
+      <div class="coup-info">
+        <div class="coup-name">Sac Camille</div>
+        <div class="coup-price">89 €</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTOIRE -->
+<section id="banniere" class="fade">
+  <div class="ban-img">
+    <img src="photo-boutique.jpg" alt="Intérieur boutique Maison Céleste Lyon rue Auguste Comte" loading="lazy" width="900" height="800"/>
+  </div>
+  <div class="ban-text">
+    <span class="section-tag">Notre histoire</span>
+    <h2 class="section-title">Une boutique<br/>née de la<br/><em>passion.</em></h2>
+    <p class="ban-body">Maison Céleste est née en 2018 dans un appartement haussmannien du 2e arrondissement de Lyon. Ce que nous aimons ? Dénicher des pièces que vous n'aurez nulle part ailleurs.</p>
+    <div class="ban-divider"></div>
+    <div class="ban-facts">
+      <div>
+        <span class="ban-fact-num">6+</span>
+        <span class="ban-fact-lbl">ans de boutique</span>
+      </div>
+      <div>
+        <span class="ban-fact-num">3</span>
+        <span class="ban-fact-lbl">adresses</span>
+      </div>
+      <div>
+        <span class="ban-fact-num">★ 4.9</span>
+        <span class="ban-fact-lbl">avis Google</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFOS / NAP -->
+<section id="infos">
+  <div class="info-cell fade">
+    <span class="info-label">Venir nous voir</span>
+    <h3 class="info-title">8 rue Auguste Comte<br/>69002 Lyon</h3>
+    <p class="info-body">
+      Métro Bellecour (A/D)<br/>
+      À deux pas de la place Bellecour<br/><br/>
+      <a href="https://maps.google.com/" target="_blank" rel="noopener">Voir sur Google Maps →</a>
+    </p>
+  </div>
+  <div class="info-cell fade">
+    <span class="info-label">Horaires</span>
+    <h3 class="info-title">Lun–Sam<br/>10h – 19h</h3>
+    <p class="info-body">
+      Fermé le dimanche.<br/><br/>
+      Conseils personnalisés disponibles en boutique — venez nous rendre visite !
+    </p>
+  </div>
+  <div class="info-cell fade">
+    <span class="info-label">Nous appeler</span>
+    <h3 class="info-title">On vous répond avec plaisir</h3>
+    <a href="tel:+33472000000" class="call-number">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      04 72 00 00 00
+    </a>
+    <p class="call-note">Pour toute question sur les tailles, les disponibilités ou un conseil cadeau — on répond du lundi au samedi, 10h–18h30.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Maison Céleste</span>
+  <span>© <span id="yr"></span> · 8 rue Auguste Comte, 69002 Lyon</span>
+  <ul class="footer-links">
+    <li><a href="#">Instagram</a></li>
+    <li><a href="#">Facebook</a></li>
+    <li><a href="#">Mentions légales</a></li>
+  </ul>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const burger = document.getElementById('burger');
+const mob = document.getElementById('mobMenu');
+burger.addEventListener('click', () => {
+  const o = mob.classList.toggle('open');
+  burger.classList.toggle('open', o);
+  document.body.style.overflow = o ? 'hidden' : '';
+});
+mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mob.classList.remove('open');
+  burger.classList.remove('open');
+  document.body.style.overflow = '';
+}));
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), i * 80);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: .1 });
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
