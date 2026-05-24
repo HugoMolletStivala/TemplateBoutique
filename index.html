@@ -464,21 +464,74 @@
     #toast.show { display: flex; opacity: 1; transform: translateX(-50%) translateY(-4px) }
     #toast .t-heart { color: var(--rose) }
 
-    /* ─────────── HERO ─────────── */
-    #hero { position: relative; height: 90svh; display: flex; overflow: hidden; }
-    .hero-col { flex: 1; position: relative; overflow: hidden }
-    .hero-col img { width: 100%; height: 100%; object-fit: cover; transition: transform 9s ease; will-change: transform }
-    .hero-col:hover img { transform: scale(1.06) }
-    .hero-col:nth-child(2) { flex: 1.3 }
-    .hero-col:nth-child(3) { flex: .9 }
-    .hero-col::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 35%, rgba(26,22,18,.5));
+    /* ─────────── HERO CARROUSEL ─────────── */
+    #hero {
+      position: relative; height: 92svh; overflow: hidden;
+      background: var(--ink);
     }
-    .hero-col+.hero-col { border-left: 2px solid rgba(201,168,76,.4) }
-    .hero-text {
-      position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
-      z-index: 10; text-align: center; white-space: nowrap; pointer-events: none;
+    .hero-slides { position: absolute; inset: 0 }
+    .hero-slide {
+      position: absolute; inset: 0;
+      opacity: 0; transition: opacity 1.2s cubic-bezier(.4,0,.2,1);
+      will-change: opacity;
+    }
+    .hero-slide.active { opacity: 1 }
+    .hero-slide img {
+      width: 100%; height: 100%; object-fit: cover;
+      transform: scale(1.06); transition: transform 7s ease;
+    }
+    .hero-slide.active img { transform: scale(1) }
+    .hero-slide::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(26,22,18,.2) 0%, transparent 30%,
+        transparent 45%, rgba(26,22,18,.68) 100%);
+    }
+    .hero-content {
+      position: absolute; inset: 0; z-index: 10;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-end;
+      padding-bottom: 5rem; text-align: center;
+      pointer-events: none;
+    }
+    /* Badge slide */
+    .hero-badge {
+      position: absolute; top: 2rem; right: 2rem; z-index: 11;
+      background: var(--rose); color: var(--ink);
+      font-size: .6rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+      padding: .38rem 1rem; border-radius: 100px;
+      opacity: 0; transform: translateY(-6px);
+      transition: opacity .6s .8s ease, transform .6s .8s ease;
+    }
+    .hero-slide.active .hero-badge { opacity: 1; transform: translateY(0) }
+    /* Flèches */
+    .hero-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      z-index: 11; width: 48px; height: 48px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.08);
+      backdrop-filter: blur(8px); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background .2s, border-color .2s, transform .2s;
+    }
+    .hero-arrow:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-50%) scale(1.08) }
+    .hero-arrow.prev { left: 2rem }
+    .hero-arrow.next { right: 2rem }
+    .hero-arrow svg { width: 18px; height: 18px; stroke-width: 1.8 }
+    /* Dots */
+    .hero-dots {
+      position: absolute; bottom: 2.25rem; left: 50%; transform: translateX(-50%);
+      z-index: 11; display: flex; align-items: center; gap: .55rem;
+    }
+    .hero-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,.35); border: none; cursor: pointer; padding: 0;
+      transition: background .3s, width .35s;
+    }
+    .hero-dot.active { background: var(--gold); width: 22px; border-radius: 3px }
+    /* Compteur */
+    .hero-counter {
+      position: absolute; bottom: 2.4rem; right: 2rem; z-index: 11;
+      font-size: .62rem; letter-spacing: .14em; color: rgba(255,255,255,.45);
     }
     /* Capsule hero */
     .hero-capsule {
@@ -492,6 +545,7 @@
       margin-bottom: 1.2rem;
       box-shadow: 0 2px 20px rgba(0,0,0,.18);
       white-space: nowrap;
+      pointer-events: none;
     }
     .hero-capsule-text {
       font-family: 'Jost', sans-serif; font-size: .7rem;
@@ -506,46 +560,47 @@
     }
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem,5vw,5rem); font-weight: 400; color: #fff; line-height: 1.05;
+      font-size: clamp(2.5rem,5.5vw,5.2rem); font-weight: 400; color: #fff; line-height: 1.1; margin-bottom: 1.75rem;
     }
     .hero-title em { font-style: italic; color: var(--gold2) }
     .hero-actions {
-      display: flex; align-items: center; justify-content: center; gap: .75rem;
-      margin-top: 1.5rem; pointer-events: all; flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: center; gap: .85rem;
+      pointer-events: all; flex-wrap: wrap;
     }
     .hero-btn {
       display: inline-flex; align-items: center; gap: .4rem;
-      border: 1px solid rgba(255,255,255,.6); color: #fff;
-      padding: .65rem 2rem; border-radius: 100px;
-      font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
-      backdrop-filter: blur(4px); background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.55); color: #fff;
+      padding: .7rem 2.2rem; border-radius: 100px;
+      font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+      backdrop-filter: blur(6px); background: rgba(255,255,255,.08);
       transition: background .25s, border-color .25s, color .25s;
     }
     .hero-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--ink) }
-    /* Bouton Itinéraire Hero — CRO */
     .hero-btn-maps {
-      display: inline-flex; align-items: center; gap: .4rem;
+      display: inline-flex; align-items: center; gap: .45rem;
       background: var(--gold); color: var(--ink);
-      padding: .65rem 1.75rem; border-radius: 100px;
-      font-size: .72rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+      padding: .7rem 1.9rem; border-radius: 100px;
+      font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
       transition: background .25s, transform .2s;
     }
     .hero-btn-maps:hover { background: var(--gold2); transform: translateY(-2px) }
     .hero-btn-maps svg { flex-shrink: 0 }
-    .hero-tag {
-      position: absolute; top: 1.5rem; right: 1.5rem; z-index: 10;
-      background: var(--gold); color: var(--ink);
-      font-size: .62rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
-      padding: .35rem .9rem; border-radius: 100px;
-    }
     /* Scroll hint */
     .scroll-hint {
-      position: absolute; bottom: 1.5rem; right: 5vw; z-index: 10;
-      display: flex; align-items: center; gap: .5rem;
-      font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
-      color: rgba(255,255,255,.5); animation: bounce 2.5s ease-in-out infinite;
+      position: absolute; bottom: 2.25rem; left: 2rem; z-index: 11;
+      display: flex; align-items: center; gap: .45rem;
+      font-size: .6rem; letter-spacing: .16em; text-transform: uppercase;
+      color: rgba(255,255,255,.4); animation: bounce 2.5s ease-in-out infinite;
     }
-    @keyframes bounce { 0%,100% { transform: translateY(0) } 50% { transform: translateY(5px) } }
+    @keyframes bounce { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(5px) } }
+    @media (max-width: 900px) {
+      #hero { height: 72svh }
+      .hero-arrow { display: none }
+      .hero-title { font-size: clamp(2rem,8vw,3rem) }
+      .hero-content { padding-bottom: 4rem; text-align: left; align-items: flex-start; padding-left: 5vw }
+      .hero-actions { justify-content: flex-start }
+      .scroll-hint { display: none }
+    }
 
     /* ─────────── MARQUEE ─────────── */
     .marquee-wrap {
@@ -979,22 +1034,22 @@
   </a>
 </nav>
 
-<!-- ═══════════ HERO ═══════════
-     H1 unique, fort, sémantique — SEO & GEO
-     2 CTA : Collection + Itinéraire (CRO local)
-     ════════════════════════════ -->
-<section id="hero" aria-labelledby="hero-title">
-  <div class="hero-col">
-    <img src="photo-hero-1.webp" alt="Boutique Maison Céleste — mode femme Lyon 2e arrondissement" width="800" height="1100" fetchpriority="high" decoding="sync"/>
+<!-- ═══════════ HERO CARROUSEL ═══════════ -->
+<section id="hero" aria-labelledby="hero-title" aria-label="Carrousel de la boutique">
+  <div class="hero-slides" aria-hidden="true">
+    <div class="hero-slide active">
+      <img src="photo-hero-1.jpg" alt="Boutique Maison Céleste — mode femme Lyon 2e arrondissement" width="1600" height="900" fetchpriority="high" decoding="sync"/>
+      <span class="hero-badge">Nouveautés Printemps</span>
+    </div>
+    <div class="hero-slide">
+      <img src="photo-hero-2.jpeg" alt="Collection printemps été Maison Céleste — boutique Lyon rue Auguste Comte" width="1600" height="900" loading="lazy" decoding="async"/>
+    </div>
+    <div class="hero-slide">
+      <img src="photo-hero-3.png" alt="Accessoires mode féminine sélectionnés — Maison Céleste Lyon" width="1600" height="900" loading="lazy" decoding="async"/>
+    </div>
   </div>
-  <div class="hero-col">
-    <img src="photo-hero-2.webp" alt="Collection printemps été Maison Céleste — boutique Lyon rue Auguste Comte" width="900" height="1100" fetchpriority="high" decoding="sync"/>
-    <span class="hero-tag">Nouveautés Printemps</span>
-  </div>
-  <div class="hero-col">
-    <img src="photo-hero-3.webp" alt="Accessoires mode féminine sélectionnés — Maison Céleste Lyon" width="700" height="1100" fetchpriority="high" decoding="sync"/>
-  </div>
-  <div class="hero-text">
+
+  <div class="hero-content">
     <div class="hero-capsule" aria-label="Boutique mode femme — Lyon 2e — Rue Auguste Comte">
       <span class="hero-capsule-line"></span>
       <span class="hero-capsule-text">Boutique mode femme</span>
@@ -1007,13 +1062,28 @@
     <h1 class="hero-title" id="hero-title">Maison Céleste —<br/><em>Mode féminine à Lyon.</em></h1>
     <div class="hero-actions">
       <a href="#catalogue" class="hero-btn">Découvrir la collection</a>
-      <!-- Bouton CRO hero : Itinéraire Google Maps -->
       <a href="https://maps.google.com/?q=8+rue+Auguste+Comte+Lyon+69002" target="_blank" rel="noopener" class="hero-btn-maps" aria-label="Obtenir l'itinéraire vers Maison Céleste, 8 rue Auguste Comte, Lyon">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         Itinéraire
       </a>
     </div>
   </div>
+
+  <button class="hero-arrow prev" id="hero-prev" aria-label="Photo précédente">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="hero-arrow next" id="hero-next" aria-label="Photo suivante">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+  <div class="hero-dots" role="tablist" aria-label="Sélectionner un visuel">
+    <button class="hero-dot active" role="tab" aria-selected="true"  aria-label="Photo 1"></button>
+    <button class="hero-dot"        role="tab" aria-selected="false" aria-label="Photo 2"></button>
+    <button class="hero-dot"        role="tab" aria-selected="false" aria-label="Photo 3"></button>
+  </div>
+
+  <div class="hero-counter" aria-hidden="true"><span id="hero-cur">1</span> / 3</div>
+
   <div class="scroll-hint" aria-hidden="true">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     Défiler
@@ -1089,9 +1159,9 @@
       </div>
     </article>
 
-    <article class="prod fade" data-cat="haut" data-id="p2" data-name="Chemisier Iris" data-ref="MC-H01" data-price="55 €" data-img="photo-2.webp">
+    <article class="prod fade" data-cat="haut" data-id="p2" data-name="Chemisier Iris" data-ref="MC-H01" data-price="55 €" data-img="photo-2.jpg">
       <div class="prod-img-wrap">
-        <img src="photo-2.webp" alt="Chemisier Iris MC-H01 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
+        <img src="photo-2.jpg" alt="Chemisier Iris MC-H01 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
         <div class="prod-overlay" aria-hidden="true"></div>
         <button class="prod-fav" aria-label="Ajouter Chemisier Iris aux favoris" data-id="p2">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
@@ -1108,9 +1178,9 @@
       </div>
     </article>
 
-    <article class="prod fade" data-cat="bas" data-id="p3" data-name="Jupe Violette" data-ref="MC-B01" data-price="49 €" data-img="photo-3.webp">
+    <article class="prod fade" data-cat="bas" data-id="p3" data-name="Jupe Violette" data-ref="MC-B01" data-price="49 €" data-img="photo-3.jpg">
       <div class="prod-img-wrap">
-        <img src="photo-3.webp" alt="Jupe Violette MC-B01 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
+        <img src="photo-3.jpg" alt="Jupe Violette MC-B01 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
         <div class="prod-overlay" aria-hidden="true"></div>
         <span class="prod-badge badge-exclu" aria-label="Exclusivité">Exclu</span>
         <button class="prod-fav" aria-label="Ajouter Jupe Violette aux favoris" data-id="p3">
@@ -1128,9 +1198,9 @@
       </div>
     </article>
 
-    <article class="prod fade" data-cat="robe" data-id="p4" data-name="Ensemble Pivoine" data-ref="MC-R02" data-price="135 €" data-img="photo-4.webp">
+    <article class="prod fade" data-cat="robe" data-id="p4" data-name="Ensemble Pivoine" data-ref="MC-R02" data-price="135 €" data-img="photo-4.jpg">
       <div class="prod-img-wrap">
-        <img src="photo-4.webp" alt="Ensemble Pivoine MC-R02 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
+        <img src="photo-4.jpg" alt="Ensemble Pivoine MC-R02 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
         <div class="prod-overlay" aria-hidden="true"></div>
         <button class="prod-fav" aria-label="Ajouter Ensemble Pivoine aux favoris" data-id="p4">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
@@ -1147,9 +1217,9 @@
       </div>
     </article>
 
-    <article class="prod fade" data-cat="haut" data-id="p5" data-name="Pull Rosée" data-ref="MC-H02" data-price="65 €" data-img="photo-5.webp">
+    <article class="prod fade" data-cat="haut" data-id="p5" data-name="Pull Rosée" data-ref="MC-H02" data-price="65 €" data-img="photo-5.jpg">
       <div class="prod-img-wrap">
-        <img src="photo-5.webp" alt="Pull Rosée MC-H02 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
+        <img src="photo-5.jpg" alt="Pull Rosée MC-H02 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
         <div class="prod-overlay" aria-hidden="true"></div>
         <span class="prod-badge badge-last" aria-label="Dernières pièces">Dernières pièces</span>
         <button class="prod-fav" aria-label="Ajouter Pull Rosée aux favoris" data-id="p5">
@@ -1167,9 +1237,9 @@
       </div>
     </article>
 
-    <article class="prod fade" data-cat="accessoire" data-id="p6" data-name="Sac Camille" data-ref="MC-A01" data-price="89 €" data-img="photo-6.webp">
+    <article class="prod fade" data-cat="accessoire" data-id="p6" data-name="Sac Camille" data-ref="MC-A01" data-price="89 €" data-img="photo-6.jpg">
       <div class="prod-img-wrap">
-        <img src="photo-6.webp" alt="Sac Camille MC-A01 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
+        <img src="photo-6.jpg" alt="Sac Camille MC-A01 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
         <div class="prod-overlay" aria-hidden="true"></div>
         <button class="prod-fav" aria-label="Ajouter Sac Camille aux favoris" data-id="p6">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
@@ -1205,9 +1275,9 @@
       </div>
     </article>
 
-    <article class="prod fade" data-cat="bas" data-id="p8" data-name="Pantalon Céleste" data-ref="MC-B02" data-price="72 €" data-img="photo-3.webp">
+    <article class="prod fade" data-cat="bas" data-id="p8" data-name="Pantalon Céleste" data-ref="MC-B02" data-price="72 €" data-img="photo-3.jpg">
       <div class="prod-img-wrap">
-        <img src="photo-3.webp" alt="Pantalon Céleste MC-B02 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
+        <img src="photo-3.jpg" alt="Pantalon Céleste MC-B02 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
         <div class="prod-overlay" aria-hidden="true"></div>
         <button class="prod-fav" aria-label="Ajouter Pantalon Céleste aux favoris" data-id="p8">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
@@ -1242,15 +1312,15 @@
     </button>
     <div class="lb-track" id="lb-track" role="region" aria-label="Galerie Lookbook Printemps">
       <div class="lb-slide">
-        <img src="photo-hero-1.webp" alt="Look 1 Maison Céleste — La flânerie parisienne" loading="lazy" width="360" height="540"/>
+        <img src="photo-hero-1.jpg" alt="Look 1 Maison Céleste — La flânerie parisienne" loading="lazy" width="360" height="540"/>
         <div class="lb-slide-caption"><span>Look 01</span><p>La flânerie parisienne</p></div>
       </div>
       <div class="lb-slide">
-        <img src="photo-hero-2.webp" alt="Look 2 Maison Céleste — Apéro en terrasse" loading="lazy" width="360" height="540"/>
+        <img src="photo-hero-2.jpeg" alt="Look 2 Maison Céleste — Apéro en terrasse" loading="lazy" width="360" height="540"/>
         <div class="lb-slide-caption"><span>Look 02</span><p>Apéro en terrasse</p></div>
       </div>
       <div class="lb-slide">
-        <img src="photo-hero-3.webp" alt="Look 3 Maison Céleste — Déjeuner dominical" loading="lazy" width="360" height="540"/>
+        <img src="photo-hero-3.png" alt="Look 3 Maison Céleste — Déjeuner dominical" loading="lazy" width="360" height="540"/>
         <div class="lb-slide-caption"><span>Look 03</span><p>Déjeuner dominical</p></div>
       </div>
       <div class="lb-slide">
@@ -1258,11 +1328,11 @@
         <div class="lb-slide-caption"><span>Look 04</span><p>Soirée en ville</p></div>
       </div>
       <div class="lb-slide">
-        <img src="photo-2.webp" alt="Look 5 Maison Céleste — Week-end à la campagne" loading="lazy" width="360" height="540"/>
+        <img src="photo-2.jpg" alt="Look 5 Maison Céleste — Week-end à la campagne" loading="lazy" width="360" height="540"/>
         <div class="lb-slide-caption"><span>Look 05</span><p>Week-end à la campagne</p></div>
       </div>
       <div class="lb-slide">
-        <img src="photo-3.webp" alt="Look 6 Maison Céleste — Tenue de cérémonie" loading="lazy" width="360" height="540"/>
+        <img src="photo-3.jpg" alt="Look 6 Maison Céleste — Tenue de cérémonie" loading="lazy" width="360" height="540"/>
         <div class="lb-slide-caption"><span>Look 06</span><p>Tenue de cérémonie</p></div>
       </div>
     </div>
@@ -1277,7 +1347,7 @@
      ════════════════════════════ -->
 <section id="banniere" class="fade" aria-labelledby="histoire-title">
   <div class="ban-img">
-    <img src="photo-boutique.webp" alt="Intérieur boutique Maison Céleste — 8 rue Auguste Comte, Lyon 2e" loading="lazy" width="900" height="800"/>
+    <img src="photo-boutique.jpg" alt="Intérieur boutique Maison Céleste — 8 rue Auguste Comte, Lyon 2e" loading="lazy" width="900" height="800"/>
   </div>
   <article class="ban-text">
     <span class="section-tag">Notre histoire</span>
@@ -1420,31 +1490,31 @@
       </div>
     </div>
     <div class="ig-item">
-      <img src="photo-2.webp" alt="Chemisier Iris nouvelle collection printemps Maison Céleste" loading="lazy" width="300" height="300"/>
+      <img src="photo-2.jpg" alt="Chemisier Iris nouvelle collection printemps Maison Céleste" loading="lazy" width="300" height="300"/>
       <div class="ig-item-overlay" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </div>
     </div>
     <div class="ig-item">
-      <img src="photo-3.webp" alt="Look jupe et blazer sélection mode femme Lyon 2e arrondissement" loading="lazy" width="300" height="300"/>
+      <img src="photo-3.jpg" alt="Look jupe et blazer sélection mode femme Lyon 2e arrondissement" loading="lazy" width="300" height="300"/>
       <div class="ig-item-overlay" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </div>
     </div>
     <div class="ig-item">
-      <img src="photo-4.webp" alt="Ensemble Pivoine tenue de cérémonie Maison Céleste Lyon" loading="lazy" width="300" height="300"/>
+      <img src="photo-4.jpg" alt="Ensemble Pivoine tenue de cérémonie Maison Céleste Lyon" loading="lazy" width="300" height="300"/>
       <div class="ig-item-overlay" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </div>
     </div>
     <div class="ig-item">
-      <img src="photo-5.webp" alt="Sac Camille et accessoires boutique mode femme Lyon" loading="lazy" width="300" height="300"/>
+      <img src="photo-5.jpg" alt="Sac Camille et accessoires boutique mode femme Lyon" loading="lazy" width="300" height="300"/>
       <div class="ig-item-overlay" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </div>
     </div>
     <div class="ig-item">
-      <img src="photo-6.webp" alt="Vitrine Maison Céleste rue Auguste Comte Lyon 2e" loading="lazy" width="300" height="300"/>
+      <img src="photo-6.jpg" alt="Vitrine Maison Céleste rue Auguste Comte Lyon 2e" loading="lazy" width="300" height="300"/>
       <div class="ig-item-overlay" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </div>
@@ -1566,6 +1636,34 @@ const io = new IntersectionObserver(entries => {
   });
 }, { threshold: .08 });
 document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+/* ── HERO CARROUSEL ── */
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.hero-dot');
+const curLabel = document.getElementById('hero-cur');
+let curSlide = 0, heroInterval;
+
+function changeSlide(idx) {
+  if (!slides.length) return;
+  slides[curSlide].classList.remove('active');
+  dots[curSlide].classList.remove('active');
+  dots[curSlide].setAttribute('aria-selected', 'false');
+  curSlide = (idx + slides.length) % slides.length;
+  slides[curSlide].classList.add('active');
+  dots[curSlide].classList.add('active');
+  dots[curSlide].setAttribute('aria-selected', 'true');
+  if (curLabel) curLabel.textContent = curSlide + 1;
+}
+function startHeroTimer() {
+  clearInterval(heroInterval);
+  heroInterval = setInterval(() => changeSlide(curSlide + 1), 6500);
+}
+const heroNext = document.getElementById('hero-next');
+const heroPrev = document.getElementById('hero-prev');
+if (heroNext) heroNext.addEventListener('click', () => { changeSlide(curSlide + 1); startHeroTimer(); });
+if (heroPrev) heroPrev.addEventListener('click', () => { changeSlide(curSlide - 1); startHeroTimer(); });
+dots.forEach((dot, i) => dot.addEventListener('click', () => { changeSlide(i); startHeroTimer(); }));
+startHeroTimer();
 
 /* ── FAVORIS ── */
 let favs = {};
