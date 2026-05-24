@@ -880,37 +880,49 @@
       .nav-link { padding: 0 .9rem; font-size: .63rem }
     }
     @media (max-width: 900px) {
-      /* Masquer la barre basse et certains éléments de la barre haute */
+      /* Nav */
       .nav-bottom { display: none }
       .nav-top-left .nav-itineraire { display: none }
       .burger { display: flex }
-      .nav-top-inner { grid-template-columns: auto 1fr auto }
-      .nav-logo { text-align: left }
+      .nav-top-inner {
+        display: flex; position: relative;
+        justify-content: space-between; align-items: center;
+      }
+      .nav-top-left { flex: 1 }
+      .nav-top-right { flex: 1; justify-content: flex-end }
+      .nav-logo {
+        position: absolute; left: 50%; transform: translateX(-50%);
+        text-align: center; font-size: 1.4rem;
+      }
       .nav-logo small { display: none }
 
-      #hero { height: 70svh; }
-      .hero-col:nth-child(2), .hero-col:nth-child(3) { display: none }
-      .hero-col:nth-child(1) { flex: 1; width: 100% }
-      .hero-col::after { background: linear-gradient(transparent 30%, rgba(26,22,18,.6)) }
-      .hero-text { white-space: normal; width: 90%; left: 5%; transform: none; text-align: left }
+      /* Hero */
+      #hero { height: 72svh }
+      .hero-arrow { display: none }
+      .hero-content {
+        padding-bottom: 4rem;
+        align-items: flex-start;
+        text-align: left;
+        padding-left: 5vw;
+        padding-right: 5vw;
+      }
+      .hero-title { font-size: clamp(2rem, 8vw, 3rem) }
+      .hero-capsule { white-space: normal; text-align: center }
       .hero-actions { justify-content: flex-start }
       .scroll-hint { display: none }
 
+      /* Sections */
       .cat-grid { grid-template-columns: repeat(2, 1fr) }
       .ig-grid { grid-template-columns: repeat(3, 1fr) }
-
       #banniere { grid-template-columns: 1fr; margin: 0 }
       .ban-img { min-height: 50vw }
       .ban-text { padding: 3rem 5vw }
-
       #infos { grid-template-columns: 1fr }
       .info-cell { border-right: none; border-bottom: 1px solid var(--border) }
       .info-cell:last-child { border-bottom: none }
-
       .footer-inner { grid-template-columns: 1fr; text-align: center }
       .footer-social { align-items: center }
       .footer-nav { flex-direction: row; justify-content: center; flex-wrap: wrap }
-
       .lb-arrow { display: none }
     }
     @media (max-width: 600px) {
@@ -918,6 +930,8 @@
       .ig-grid { grid-template-columns: repeat(3, 1fr) }
       .ban-facts { flex-direction: column; gap: 1.5rem }
       .cat-sub, .lb-sub { text-align: left }
+      .hero-capsule { font-size: .6rem; padding: .6rem 1.2rem; gap: .7rem }
+      .hero-capsule-line { width: 16px }
     }
     @media (max-width: 400px) {
       .ig-grid { grid-template-columns: repeat(2, 1fr) }
