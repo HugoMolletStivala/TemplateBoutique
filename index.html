@@ -1451,37 +1451,113 @@
     <h2 class="section-title" id="faq-title">Tout ce que vous<br/>voulez <em>savoir</em></h2>
   </div>
 
-  <div class="fade" style="display:flex;flex-direction:column;gap:1.25rem">
+  <style>
+    .faq-accordion-item { border-bottom: 1px solid var(--border); }
+    .faq-accordion-btn {
+      width: 100%; background: none; border: none; padding: 1.2rem 0;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      cursor: pointer; text-align: left; font-family: inherit;
+    }
+    .faq-accordion-btn:hover .faq-accordion-q { color: var(--gold); }
+    .faq-accordion-q {
+      font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 400;
+      color: var(--ink); transition: color 0.2s; line-height: 1.4;
+    }
+    .faq-accordion-icon {
+      flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+      border: 1px solid var(--border); background: transparent;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+      font-size: 1.2rem; color: var(--ink3); line-height: 1;
+      transition: all 0.3s ease;
+    }
+    .faq-accordion-item.open .faq-accordion-icon {
+      background: var(--gold); border-color: var(--gold); color: var(--ink);
+      transform: rotate(45deg);
+    }
+    .faq-accordion-body {
+      overflow: hidden; max-height: 0;
+      transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .faq-accordion-body-inner {
+      padding-bottom: 1.25rem;
+      font-size: .88rem; color: var(--ink2); line-height: 1.85;
+    }
+  </style>
 
-    <article id="faq-vetements" style="border-bottom:1px solid var(--border);padding-bottom:1.25rem">
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;margin-bottom:.6rem">Quels types de vêtements trouve-t-on chez Maison Céleste ?</h3>
-      <p style="font-size:.88rem;color:var(--ink2);line-height:1.85"><span itemscope itemtype="https://schema.org/ClothingStore" itemprop="name">Maison Céleste</span> propose une sélection complète de mode féminine : robes (Robe Capucine, Ensemble Pivoine), hauts et chemisiers (Chemisier Iris, Pull Rosée), bas (Jupe Violette, Pantalon Céleste), vestes et blazers (Blazer Aurore), et accessoires (Sac Camille). Les prix s'échelonnent de 49 € à 135 €. La collection est renouvelée chaque saison avec des pièces sélectionnées lors de showrooms parisiens et chez des créateurs européens indépendants.</p>
-    </article>
+  <div class="fade" id="faq-accordion">
 
-    <article id="faq-adresse" style="border-bottom:1px solid var(--border);padding-bottom:1.25rem">
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;margin-bottom:.6rem">Où se trouve la boutique Maison Céleste à Lyon ?</h3>
-      <p style="font-size:.88rem;color:var(--ink2);line-height:1.85">La boutique est au <strong>8 rue Auguste Comte, 69002 Lyon</strong>, dans le 2e arrondissement, à deux pas de la place Bellecour. Accessible par le métro Bellecour (lignes A et D). <a href="https://maps.google.com/?q=8+rue+Auguste+Comte+Lyon+69002" target="_blank" rel="noopener" style="color:var(--gold)">Voir le plan →</a></p>
-    </article>
+    <div class="faq-accordion-item">
+      <button class="faq-accordion-btn" aria-expanded="false">
+        <span class="faq-accordion-q">Quels types de vêtements trouve-t-on chez Maison Céleste ?</span>
+        <span class="faq-accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-accordion-body">
+        <div class="faq-accordion-body-inner" id="faq-vetements">
+          Maison Céleste propose une sélection complète de mode féminine : robes (Robe Capucine, Ensemble Pivoine), hauts et chemisiers (Chemisier Iris, Pull Rosée), bas (Jupe Violette, Pantalon Céleste), vestes et blazers (Blazer Aurore), et accessoires (Sac Camille). Les prix s'échelonnent de 49 € à 135 €. La collection est renouvelée chaque saison avec des pièces sélectionnées lors de showrooms parisiens et chez des créateurs européens indépendants.
+        </div>
+      </div>
+    </div>
 
-    <article id="faq-parking" style="border-bottom:1px solid var(--border);padding-bottom:1.25rem">
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;margin-bottom:.6rem">Où se garer près de Maison Céleste ?</h3>
-      <p style="font-size:.88rem;color:var(--ink2);line-height:1.85">Plusieurs parkings sont accessibles à pied depuis la boutique : <strong>Parking Bellecour</strong> (place Bellecour, 5 min), <strong>Parking des Cordeliers</strong> (rue Mercière, 4 min), et <strong>Parking Célestins</strong> (quai des Célestins). En transports en commun, la station de métro <strong>Bellecour</strong> (lignes A et D) se situe à 2 minutes à pied du 8 rue Auguste Comte.</p>
-    </article>
+    <div class="faq-accordion-item">
+      <button class="faq-accordion-btn" aria-expanded="false">
+        <span class="faq-accordion-q">Où se trouve la boutique Maison Céleste à Lyon ?</span>
+        <span class="faq-accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-accordion-body">
+        <div class="faq-accordion-body-inner" id="faq-adresse">
+          La boutique est au <strong>8 rue Auguste Comte, 69002 Lyon</strong>, dans le 2e arrondissement, à deux pas de la place Bellecour. Accessible par le métro Bellecour (lignes A et D). <a href="https://maps.google.com/?q=8+rue+Auguste+Comte+Lyon+69002" target="_blank" rel="noopener" style="color:var(--gold)">Voir le plan →</a>
+        </div>
+      </div>
+    </div>
 
-    <article id="faq-horaires" style="border-bottom:1px solid var(--border);padding-bottom:1.25rem">
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;margin-bottom:.6rem">Quels sont les horaires d'ouverture ?</h3>
-      <p style="font-size:.88rem;color:var(--ink2);line-height:1.85">La boutique est ouverte <strong>du lundi au samedi de 10h à 19h</strong>. Fermée le dimanche. Pour une question rapide, vous pouvez appeler le <a href="tel:+33472000000" style="color:var(--gold)">04 72 00 00 00</a> du lundi au samedi de 10h à 18h30.</p>
-    </article>
+    <div class="faq-accordion-item">
+      <button class="faq-accordion-btn" aria-expanded="false">
+        <span class="faq-accordion-q">Où se garer près de Maison Céleste ?</span>
+        <span class="faq-accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-accordion-body">
+        <div class="faq-accordion-body-inner" id="faq-parking">
+          Plusieurs parkings sont accessibles à pied depuis la boutique : <strong>Parking Bellecour</strong> (place Bellecour, 5 min), <strong>Parking des Cordeliers</strong> (rue Mercière, 4 min), et <strong>Parking Célestins</strong> (quai des Célestins). En transports en commun, la station de métro <strong>Bellecour</strong> (lignes A et D) se situe à 2 minutes à pied du 8 rue Auguste Comte.
+        </div>
+      </div>
+    </div>
 
-    <article id="faq-conseils" style="border-bottom:1px solid var(--border);padding-bottom:1.25rem">
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;margin-bottom:.6rem">Proposez-vous des conseils personnalisés ?</h3>
-      <p style="font-size:.88rem;color:var(--ink2);line-height:1.85">Oui, c'est l'ADN de Maison Céleste. Élise Morel et son équipe vous accompagnent pour choisir votre taille, composer une tenue complète ou trouver un cadeau original. Pas besoin de rendez-vous — venez directement au <strong>8 rue Auguste Comte, Lyon 69002</strong>.</p>
-    </article>
+    <div class="faq-accordion-item">
+      <button class="faq-accordion-btn" aria-expanded="false">
+        <span class="faq-accordion-q">Quels sont les horaires d'ouverture ?</span>
+        <span class="faq-accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-accordion-body">
+        <div class="faq-accordion-body-inner" id="faq-horaires">
+          La boutique est ouverte <strong>du lundi au samedi de 10h à 19h</strong>. Fermée le dimanche. Pour une question rapide, vous pouvez appeler le <a href="tel:+33472000000" style="color:var(--gold)">04 72 00 00 00</a> du lundi au samedi de 10h à 18h30.
+        </div>
+      </div>
+    </div>
 
-    <article id="faq-disponibilites">
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;margin-bottom:.6rem">Peut-on connaître les disponibilités avant de se déplacer ?</h3>
-      <p style="font-size:.88rem;color:var(--ink2);line-height:1.85">Oui — appelez-nous au <a href="tel:+33472000000" style="color:var(--gold)">04 72 00 00 00</a> ou utilisez la fonction <strong>Favoris</strong> sur ce site pour noter les références qui vous intéressent (réf. MC-R01 à MC-A01), puis contactez-nous pour vérifier les tailles disponibles avant votre visite.</p>
-    </article>
+    <div class="faq-accordion-item">
+      <button class="faq-accordion-btn" aria-expanded="false">
+        <span class="faq-accordion-q">Proposez-vous des conseils personnalisés ?</span>
+        <span class="faq-accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-accordion-body">
+        <div class="faq-accordion-body-inner" id="faq-conseils">
+          Oui, c'est l'ADN de Maison Céleste. Élise Morel et son équipe vous accompagnent pour choisir votre taille, composer une tenue complète ou trouver un cadeau original. Pas besoin de rendez-vous — venez directement au <strong>8 rue Auguste Comte, Lyon 69002</strong>.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-accordion-item">
+      <button class="faq-accordion-btn" aria-expanded="false">
+        <span class="faq-accordion-q">Peut-on connaître les disponibilités avant de se déplacer ?</span>
+        <span class="faq-accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-accordion-body">
+        <div class="faq-accordion-body-inner" id="faq-disponibilites">
+          Oui — appelez-nous au <a href="tel:+33472000000" style="color:var(--gold)">04 72 00 00 00</a> ou utilisez la fonction <strong>Favoris</strong> sur ce site pour noter les références qui vous intéressent (réf. MC-R01 à MC-A01), puis contactez-nous pour vérifier les tailles disponibles avant votre visite.
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>
@@ -1884,6 +1960,24 @@ document.addEventListener('keydown', e => {
     mob.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
+});
+
+/* ── FAQ Accordéon ── */
+document.querySelectorAll('.faq-accordion-item').forEach(item => {
+  item.querySelector('.faq-accordion-btn').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-accordion-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-accordion-btn').setAttribute('aria-expanded', 'false');
+      i.querySelector('.faq-accordion-body').style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      item.querySelector('.faq-accordion-btn').setAttribute('aria-expanded', 'true');
+      const inner = item.querySelector('.faq-accordion-body-inner');
+      item.querySelector('.faq-accordion-body').style.maxHeight = inner.scrollHeight + 'px';
+    }
+  });
 });
 </script>
 </body>
