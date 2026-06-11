@@ -20,10 +20,6 @@
   <meta name="twitter:description" content="Boutique de mode féminine indépendante à Lyon, 8 rue Auguste Comte. Pièces sélectionnées, conseils personnalisés. Ouvert lun–sam 10h–19h."/>
   <meta name="twitter:image" content="https://maisonceleste.fr/photo-hero-2.webp"/>
 
-  <!-- ════════════════════════════════════════════
-       DONNÉES STRUCTURÉES — ClothingStore (GEO-optimisé)
-       sameAs = profils précis & vérifiables pour signal d'autorité
-       ════════════════════════════════════════════ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -94,10 +90,6 @@
   }
   </script>
 
-  <!-- ════════════════════════════════════════════
-       DONNÉES STRUCTURÉES — FAQPage (GEO-optimisé)
-       Blocs sémantiques cibles pour LLMs / IA génératives
-       ════════════════════════════════════════════ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -163,14 +155,14 @@
     /* ─────────── TOKENS ─────────── */
     :root {
       --cream: #FAF7F2;
-      --cream2: #EDE8DF;   /* assombri légèrement pour meilleur contraste WCAG */
-      --cream3: #E4DDD0;   /* assombri légèrement pour meilleur contraste WCAG */
+      --cream2: #EDE8DF;
+      --cream3: #E4DDD0;
       --gold: #C9A84C;
       --gold2: #E8C97A;
       --gold3: #F0D898;
       --ink: #1A1612;
-      --ink2: #4A3F35;     /* assombri pour contraste WCAG AA sur fond clair */
-      --ink3: #6B5E52;     /* assombri pour contraste WCAG AA sur fond clair */
+      --ink2: #4A3F35;
+      --ink3: #6B5E52;
       --rose: #E8B4B8;
       --sage: #B5C4B1;
       --border: rgba(26,22,18,.12);
@@ -226,7 +218,6 @@
     }
     #nav.scrolled { box-shadow: 0 4px 32px rgba(26,22,18,.12) }
 
-    /* ── Barre haute : logo centré + icônes ── */
     .nav-top {
       background: rgba(250,247,242,.96);
       backdrop-filter: blur(14px) saturate(1.5);
@@ -256,7 +247,6 @@
       color: var(--ink3); font-weight: 400; margin-top: .25rem;
     }
 
-    /* Icônes actions (téléphone, itinéraire, favoris) */
     .nav-icon-btn {
       display: inline-flex; flex-direction: column; align-items: center; gap: .2rem;
       background: none; border: none; color: var(--ink2);
@@ -267,7 +257,6 @@
     .nav-icon-btn svg { width: 18px; height: 18px; stroke-width: 1.5 }
     .nav-icon-btn:hover { color: var(--gold) }
 
-    /* Bouton Itinéraire pill */
     .nav-itineraire {
       display: inline-flex; align-items: center; gap: .4rem;
       font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
@@ -279,7 +268,6 @@
     .nav-itineraire:hover { background: var(--gold2); transform: translateY(-1px) }
     .nav-itineraire svg { width: 12px; height: 12px; flex-shrink: 0 }
 
-    /* Favoris badge */
     #fav-toggle {
       position: relative; background: none; border: none;
       display: inline-flex; flex-direction: column; align-items: center; gap: .2rem;
@@ -306,7 +294,6 @@
     .nav-phone svg { width: 18px; height: 18px; stroke-width: 1.5 }
     .nav-phone:hover { color: var(--gold) }
 
-    /* ── Barre basse : liens navigation ── */
     .nav-bottom {
       background: var(--ink);
       border-top: 1px solid rgba(201,168,76,.2);
@@ -330,13 +317,11 @@
     .nav-link:hover { color: #fff }
     .nav-link:hover::after { left: 1rem; right: 1rem }
 
-    /* Séparateur entre liens */
     .nav-link + .nav-link::before {
       content: ''; position: absolute; left: 0; top: 30%; bottom: 30%;
       width: 1px; background: rgba(250,247,242,.1);
     }
 
-    /* Burger mobile */
     .burger {
       display: none; flex-direction: column; gap: 5px;
       background: none; border: none; cursor: pointer; padding: .4rem;
@@ -493,7 +478,6 @@
       padding-bottom: 5rem; text-align: center;
       pointer-events: none;
     }
-    /* Badge slide */
     .hero-badge {
       position: absolute; top: 2rem; right: 2rem; z-index: 11;
       background: var(--rose); color: var(--ink);
@@ -503,7 +487,6 @@
       transition: opacity .6s .8s ease, transform .6s .8s ease;
     }
     .hero-slide.active .hero-badge { opacity: 1; transform: translateY(0) }
-    /* Flèches */
     .hero-arrow {
       position: absolute; top: 50%; transform: translateY(-50%);
       z-index: 11; width: 48px; height: 48px; border-radius: 50%;
@@ -516,7 +499,6 @@
     .hero-arrow.prev { left: 2rem }
     .hero-arrow.next { right: 2rem }
     .hero-arrow svg { width: 18px; height: 18px; stroke-width: 1.8 }
-    /* Dots */
     .hero-dots {
       position: absolute; bottom: 2.25rem; left: 50%; transform: translateX(-50%);
       z-index: 11; display: flex; align-items: center; gap: .55rem;
@@ -527,12 +509,10 @@
       transition: background .3s, width .35s;
     }
     .hero-dot.active { background: var(--gold); width: 22px; border-radius: 3px }
-    /* Compteur */
     .hero-counter {
       position: absolute; bottom: 2.4rem; right: 2rem; z-index: 11;
       font-size: .62rem; letter-spacing: .14em; color: rgba(255,255,255,.45);
     }
-    /* Capsule hero */
     .hero-capsule {
       display: inline-flex; align-items: center; gap: 1.2rem;
       background: rgba(20,15,10,.42);
@@ -584,7 +564,6 @@
     }
     .hero-btn-maps:hover { background: var(--gold2); transform: translateY(-2px) }
     .hero-btn-maps svg { flex-shrink: 0 }
-    /* Scroll hint */
     .scroll-hint {
       position: absolute; bottom: 2.25rem; left: 2rem; z-index: 11;
       display: flex; align-items: center; gap: .45rem;
@@ -609,7 +588,6 @@
       border-bottom: 1px solid rgba(201,168,76,.35);
       padding: 1rem 0;
     }
-    /* Effet fondu sur les bords gauche/droite */
     .marquee-wrap::before,
     .marquee-wrap::after {
       content: ''; position: absolute; top: 0; bottom: 0; width: 8vw; z-index: 2; pointer-events: none;
@@ -646,7 +624,6 @@
     .cat-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.5rem; gap: 2rem; flex-wrap: wrap }
     .cat-sub { font-size: .85rem; color: var(--ink2); max-width: 32ch; line-height: 1.75; text-align: right }
 
-    /* Filtres */
     .cat-filters {
       display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 2.25rem;
       padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);
@@ -661,7 +638,6 @@
       background: var(--ink); color: var(--cream); border-color: var(--ink);
     }
 
-    /* Grille produits */
     .cat-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -688,7 +664,6 @@
     }
     .prod:hover .prod-overlay { opacity: 1 }
 
-    /* Bouton favoris */
     .prod-fav {
       position: absolute; top: .75rem; right: .75rem; z-index: 5;
       width: 34px; height: 34px; border-radius: 50%;
@@ -720,18 +695,24 @@
     .prod-sizes { display: flex; gap: .3rem }
     .prod-size { font-size: .6rem; border: 1px solid var(--border); border-radius: 3px; padding: .2rem .4rem; color: var(--ink3) }
 
-    /* hidden filtered */
     .prod.hidden { display: none }
 
-    /* ─────────── LOOKBOOK (horizontal scroll) ─────────── */
+    /* ─────────── LOOKBOOK ─────────── */
     #lookbook { padding: 5rem 0; overflow: hidden }
     .lb-head { padding: 0 5vw; display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.5rem; gap: 2rem }
     .lb-sub { font-size: .85rem; color: var(--ink2); max-width: 32ch; line-height: 1.75; text-align: right }
+    .lb-hint {
+      display: flex; align-items: center; gap: .4rem;
+      font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink3); margin-top: .75rem;
+    }
+    .lb-hint svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--gold) }
+
     .lb-scroll-wrap {
       position: relative;
     }
     .lb-track {
-      display: flex; gap: 1rem; padding: 0 5vw 1rem;
+      display: flex; gap: 1rem; padding: 0 5vw 1.5rem;
       overflow-x: auto; scroll-snap-type: x mandatory;
       scroll-padding-left: 5vw;
       scrollbar-width: none;
@@ -740,20 +721,146 @@
     }
     .lb-track:active { cursor: grabbing }
     .lb-track::-webkit-scrollbar { display: none }
+
+    /* ── FLIP CARD ── */
     .lb-slide {
       scroll-snap-align: start; flex-shrink: 0;
       width: clamp(220px, 28vw, 360px);
-      border-radius: var(--r2); overflow: hidden;
-      position: relative; background: var(--cream3);
+      /* hauteur fixée pour que recto/verso aient la même taille */
+      aspect-ratio: 2/3;
+      perspective: 1200px;
+      cursor: pointer;
     }
-    .lb-slide img { width: 100%; aspect-ratio: 2/3; object-fit: cover; transition: transform .6s ease; will-change: transform }
-    .lb-slide:hover img { transform: scale(1.04) }
-    .lb-slide-caption {
+
+    .lb-card-inner {
+      position: relative; width: 100%; height: 100%;
+      transform-style: preserve-3d;
+      transition: transform .7s cubic-bezier(.4,0,.2,1);
+      border-radius: var(--r2);
+    }
+
+    /* Flip au hover sur desktop */
+    @media (hover: hover) {
+      .lb-slide:hover .lb-card-inner {
+        transform: rotateY(180deg);
+      }
+    }
+    /* Flip au clic (classe toggle) */
+    .lb-slide.flipped .lb-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .lb-card-front,
+    .lb-card-back {
+      position: absolute; inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: var(--r2);
+      overflow: hidden;
+    }
+
+    /* RECTO */
+    .lb-card-front {
+      background: var(--cream3);
+    }
+    .lb-card-front img {
+      width: 100%; height: calc(100% - 72px); object-fit: cover;
+    }
+    .lb-card-front-caption {
       padding: 1rem 1.25rem 1.25rem;
+      background: var(--cream);
+      height: 72px;
+      display: flex; flex-direction: column; justify-content: center;
     }
-    .lb-slide-caption span { font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold) }
-    .lb-slide-caption p { font-family: 'Playfair Display', serif; font-style: italic; font-size: .95rem; margin-top: .2rem; color: var(--ink) }
-    /* Arrow buttons */
+    .lb-card-front-caption span {
+      font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold);
+    }
+    .lb-card-front-caption p {
+      font-family: 'Playfair Display', serif; font-style: italic; font-size: .95rem; margin-top: .15rem; color: var(--ink);
+    }
+
+    /* Indicateur flip sur le recto */
+    .lb-flip-hint {
+      position: absolute; bottom: 80px; right: .85rem;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(26,22,18,.55); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(250,247,242,.8);
+      transition: opacity .3s, background .3s;
+      pointer-events: none;
+    }
+    .lb-flip-hint svg { width: 15px; height: 15px }
+    .lb-slide.flipped .lb-flip-hint { opacity: 0 }
+
+    /* VERSO */
+    .lb-card-back {
+      background: var(--ink);
+      transform: rotateY(180deg);
+      display: flex; flex-direction: column;
+      padding: 1.75rem 1.5rem;
+    }
+
+    .lb-back-label {
+      font-size: .6rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: .4rem;
+    }
+    .lb-back-title {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.15rem; color: var(--cream); line-height: 1.25;
+      margin-bottom: 1.25rem; padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(201,168,76,.2);
+    }
+
+    .lb-back-items {
+      display: flex; flex-direction: column; gap: .85rem; flex: 1;
+    }
+    .lb-back-item {
+      display: flex; align-items: flex-start; gap: .85rem;
+    }
+    .lb-back-item-img {
+      width: 48px; height: 60px; object-fit: cover;
+      border-radius: 6px; flex-shrink: 0;
+      background: rgba(250,247,242,.06);
+    }
+    .lb-back-item-info { flex: 1 }
+    .lb-back-item-name {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: .88rem; color: var(--cream); line-height: 1.3;
+    }
+    .lb-back-item-ref {
+      font-size: .6rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--gold); margin-top: .2rem;
+    }
+    .lb-back-item-price {
+      font-size: .78rem; color: rgba(250,247,242,.5); margin-top: .15rem;
+    }
+
+    .lb-back-total {
+      margin-top: auto; padding-top: 1rem;
+      border-top: 1px solid rgba(201,168,76,.2);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .lb-back-total-label {
+      font-size: .65rem; letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(250,247,242,.4);
+    }
+    .lb-back-total-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; color: var(--gold2);
+    }
+
+    /* Bouton retour verso */
+    .lb-back-close {
+      position: absolute; top: 1rem; right: 1rem;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(250,247,242,.1); border: none;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(250,247,242,.5); font-size: .9rem; line-height: 1;
+      transition: background .2s, color .2s; cursor: pointer;
+    }
+    .lb-back-close:hover { background: rgba(250,247,242,.18); color: var(--cream) }
+
+    /* Flèches lookbook */
     .lb-arrow {
       position: absolute; top: 40%; transform: translateY(-50%);
       width: 44px; height: 44px; border-radius: 50%;
@@ -872,6 +979,12 @@
     .fade { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease }
     .fade.in { opacity: 1; transform: none }
 
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .lb-card-inner { transition: none }
+      .fade { transition: none }
+    }
+
     /* ─────────── RESPONSIVE ─────────── */
     @media (max-width: 1100px) {
       .cat-grid { grid-template-columns: repeat(3, 1fr) }
@@ -880,7 +993,6 @@
       .nav-link { padding: 0 .9rem; font-size: .63rem }
     }
     @media (max-width: 900px) {
-      /* Nav */
       .nav-bottom { display: none }
       .nav-top-left .nav-itineraire { display: none }
       .burger { display: flex }
@@ -896,7 +1008,6 @@
       }
       .nav-logo small { display: none }
 
-      /* Hero */
       #hero { height: 72svh }
       .hero-arrow { display: none }
       .hero-content {
@@ -911,7 +1022,6 @@
       .hero-actions { justify-content: flex-start }
       .scroll-hint { display: none }
 
-      /* Sections */
       .cat-grid { grid-template-columns: repeat(2, 1fr) }
       .ig-grid { grid-template-columns: repeat(3, 1fr) }
       #banniere { grid-template-columns: 1fr; margin: 0 }
@@ -924,6 +1034,9 @@
       .footer-social { align-items: center }
       .footer-nav { flex-direction: row; justify-content: center; flex-wrap: wrap }
       .lb-arrow { display: none }
+
+      /* Sur mobile : toujours flip au clic, pas hover */
+      .lb-slide { width: clamp(200px, 70vw, 280px) }
     }
     @media (max-width: 600px) {
       .cat-grid { grid-template-columns: repeat(2, 1fr); gap: .75rem }
@@ -932,6 +1045,7 @@
       .cat-sub, .lb-sub { text-align: left }
       .hero-capsule { font-size: .6rem; padding: .6rem 1.2rem; gap: .7rem }
       .hero-capsule-line { width: 16px }
+      .lb-hint { display: none }
     }
     @media (max-width: 400px) {
       .ig-grid { grid-template-columns: repeat(2, 1fr) }
@@ -982,28 +1096,20 @@
   </div>
 </div>
 
-<!-- Nav deux niveaux -->
+<!-- Nav -->
 <nav id="nav" aria-label="Navigation principale">
-
-  <!-- Niveau 1 : logo centré + icônes actions -->
   <div class="nav-top">
     <div class="nav-top-inner">
-
-      <!-- Gauche : téléphone + itinéraire -->
       <div class="nav-top-left">
         <a href="https://maps.google.com/?q=8+rue+Auguste+Comte+Lyon+69002" target="_blank" rel="noopener" class="nav-itineraire" aria-label="Itinéraire vers Maison Céleste, 8 rue Auguste Comte Lyon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Nous trouver
         </a>
       </div>
-
-      <!-- Centre : logo -->
       <a href="#hero" class="nav-logo" aria-label="Maison Céleste — Accueil">
         Maison <span>Céleste</span>
         <small>Boutique mode femme · Lyon</small>
       </a>
-
-      <!-- Droite : favoris + burger -->
       <div class="nav-top-right">
         <button id="fav-toggle" aria-label="Mes favoris (0 article)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
@@ -1012,11 +1118,8 @@
         </button>
         <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobMenu"><span></span><span></span><span></span></button>
       </div>
-
     </div>
   </div>
-
-  <!-- Niveau 2 : liens de navigation catégories -->
   <div class="nav-bottom" aria-label="Catégories">
     <div class="nav-bottom-inner">
       <a href="#catalogue" class="nav-link">Collection</a>
@@ -1027,10 +1130,8 @@
       <a href="#avis" class="nav-link">Avis clients</a>
     </div>
   </div>
-
 </nav>
 
-<!-- Menu mobile — balise <nav> sémantique avec aria-label (WCAG 2.1) -->
 <nav class="mob-menu" id="mobMenu" aria-label="Menu mobile" aria-hidden="true">
   <a href="#catalogue">Collection</a>
   <a href="#lookbook">Lookbook</a>
@@ -1040,14 +1141,13 @@
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
     04 72 00 00 00
   </a>
-  <!-- Bouton CRO mobile : Itinéraire -->
   <a href="https://maps.google.com/?q=8+rue+Auguste+Comte+Lyon+69002" target="_blank" rel="noopener" class="mob-itineraire" aria-label="Itinéraire vers Maison Céleste, 8 rue Auguste Comte Lyon">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
     Itinéraire
   </a>
 </nav>
 
-<!-- ═══════════ HERO CARROUSEL ═══════════ -->
+<!-- ═══════════ HERO ═══════════ -->
 <section id="hero" aria-labelledby="hero-title" aria-label="Carrousel de la boutique">
   <div class="hero-slides" aria-hidden="true">
     <div class="hero-slide active">
@@ -1061,7 +1161,6 @@
       <img src="photo-hero-3.png" alt="Accessoires mode féminine sélectionnés — Maison Céleste Lyon" width="1600" height="900" loading="lazy" decoding="async"/>
     </div>
   </div>
-
   <div class="hero-content">
     <div class="hero-capsule" aria-label="Boutique mode femme — Lyon 2e — Rue Auguste Comte">
       <span class="hero-capsule-line"></span>
@@ -1081,22 +1180,18 @@
       </a>
     </div>
   </div>
-
   <button class="hero-arrow prev" id="hero-prev" aria-label="Photo précédente">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6"/></svg>
   </button>
   <button class="hero-arrow next" id="hero-next" aria-label="Photo suivante">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg>
   </button>
-
   <div class="hero-dots" role="tablist" aria-label="Sélectionner un visuel">
     <button class="hero-dot active" role="tab" aria-selected="true"  aria-label="Photo 1"></button>
     <button class="hero-dot"        role="tab" aria-selected="false" aria-label="Photo 2"></button>
     <button class="hero-dot"        role="tab" aria-selected="false" aria-label="Photo 3"></button>
   </div>
-
   <div class="hero-counter" aria-hidden="true"><span id="hero-cur">1</span> / 3</div>
-
   <div class="scroll-hint" aria-hidden="true">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     Défiler
@@ -1129,9 +1224,7 @@
   </div>
 </div>
 
-<!-- ═══════════ CATALOGUE
-     H2 → hiérarchie correcte après H1 hero
-     ════════════════════════════ -->
+<!-- ═══════════ CATALOGUE ═══════════ -->
 <section id="catalogue" aria-labelledby="catalogue-title">
   <div class="cat-head fade">
     <div>
@@ -1140,7 +1233,6 @@
     </div>
     <p class="cat-sub">Des silhouettes choisies une à une, pour vous accompagner du matin au soir.</p>
   </div>
-
   <div class="cat-filters fade" role="group" aria-label="Filtrer la collection">
     <button class="filter-btn active" data-filter="all">Tout voir</button>
     <button class="filter-btn" data-filter="robe">Robes</button>
@@ -1149,9 +1241,7 @@
     <button class="filter-btn" data-filter="veste">Vestes</button>
     <button class="filter-btn" data-filter="accessoire">Accessoires</button>
   </div>
-
   <div class="cat-grid" id="catalogue-grid">
-
     <article class="prod fade" data-cat="robe" data-id="p1" data-name="Robe Capucine" data-ref="MC-R01" data-price="79 €" data-img="photo-1.webp">
       <div class="prod-img-wrap">
         <img src="photo-1.webp" alt="Robe Capucine MC-R01 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
@@ -1171,7 +1261,6 @@
         </div>
       </div>
     </article>
-
     <article class="prod fade" data-cat="haut" data-id="p2" data-name="Chemisier Iris" data-ref="MC-H01" data-price="55 €" data-img="photo-2.jpg">
       <div class="prod-img-wrap">
         <img src="photo-2.jpg" alt="Chemisier Iris MC-H01 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
@@ -1190,7 +1279,6 @@
         </div>
       </div>
     </article>
-
     <article class="prod fade" data-cat="bas" data-id="p3" data-name="Jupe Violette" data-ref="MC-B01" data-price="49 €" data-img="photo-3.jpg">
       <div class="prod-img-wrap">
         <img src="photo-3.jpg" alt="Jupe Violette MC-B01 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
@@ -1210,7 +1298,6 @@
         </div>
       </div>
     </article>
-
     <article class="prod fade" data-cat="robe" data-id="p4" data-name="Ensemble Pivoine" data-ref="MC-R02" data-price="135 €" data-img="photo-4.jpg">
       <div class="prod-img-wrap">
         <img src="photo-4.jpg" alt="Ensemble Pivoine MC-R02 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
@@ -1229,7 +1316,6 @@
         </div>
       </div>
     </article>
-
     <article class="prod fade" data-cat="haut" data-id="p5" data-name="Pull Rosée" data-ref="MC-H02" data-price="65 €" data-img="photo-5.jpg">
       <div class="prod-img-wrap">
         <img src="photo-5.jpg" alt="Pull Rosée MC-H02 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
@@ -1249,7 +1335,6 @@
         </div>
       </div>
     </article>
-
     <article class="prod fade" data-cat="accessoire" data-id="p6" data-name="Sac Camille" data-ref="MC-A01" data-price="89 €" data-img="photo-6.jpg">
       <div class="prod-img-wrap">
         <img src="photo-6.jpg" alt="Sac Camille MC-A01 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
@@ -1267,7 +1352,6 @@
         </div>
       </div>
     </article>
-
     <article class="prod fade" data-cat="veste" data-id="p7" data-name="Blazer Aurore" data-ref="MC-V01" data-price="115 €" data-img="photo-1.webp">
       <div class="prod-img-wrap">
         <img src="photo-1.webp" alt="Blazer Aurore MC-V01 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
@@ -1287,7 +1371,6 @@
         </div>
       </div>
     </article>
-
     <article class="prod fade" data-cat="bas" data-id="p8" data-name="Pantalon Céleste" data-ref="MC-B02" data-price="72 €" data-img="photo-3.jpg">
       <div class="prod-img-wrap">
         <img src="photo-3.jpg" alt="Pantalon Céleste MC-B02 — Maison Céleste Lyon" loading="lazy" width="600" height="800"/>
@@ -1306,58 +1389,323 @@
         </div>
       </div>
     </article>
-
   </div>
 </section>
 
-<!-- ═══════════ LOOKBOOK ═══════════ -->
+<!-- ═══════════ LOOKBOOK FLIP CARDS ═══════════ -->
 <section id="lookbook" aria-labelledby="lookbook-title">
   <div class="lb-head fade">
     <div>
       <span class="section-tag">Inspirations du moment</span>
       <h2 class="section-title" id="lookbook-title">Le <em>lookbook</em><br/>Printemps</h2>
+      <p class="lb-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 15l-5-5m0 0l-5 5m5-5v12"/><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3l6 6"/></svg>
+        Survolez une carte pour voir les pièces du look
+      </p>
     </div>
     <p class="lb-sub">Des associations imaginées en boutique, à reproduire ou réinterpréter.</p>
   </div>
+
   <div class="lb-scroll-wrap">
     <button class="lb-arrow prev" id="lb-prev" aria-label="Précédent">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 18l-6-6 6-6"/></svg>
     </button>
+
     <div class="lb-track" id="lb-track" role="region" aria-label="Galerie Lookbook Printemps">
-      <div class="lb-slide">
-        <img src="photo-hero-1.jpg" alt="Look 1 Maison Céleste — La flânerie parisienne" loading="lazy" width="360" height="540"/>
-        <div class="lb-slide-caption"><span>Look 01</span><p>La flânerie parisienne</p></div>
+
+      <!-- LOOK 01 — La flânerie parisienne -->
+      <div class="lb-slide" role="article" aria-label="Look 01 — La flânerie parisienne">
+        <div class="lb-card-inner">
+          <!-- RECTO -->
+          <div class="lb-card-front">
+            <img src="photo-hero-1.jpg" alt="Look 01 — La flânerie parisienne, Maison Céleste" loading="lazy" width="360" height="480"/>
+            <div class="lb-card-front-caption">
+              <span>Look 01</span>
+              <p>La flânerie parisienne</p>
+            </div>
+            <div class="lb-flip-hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            </div>
+          </div>
+          <!-- VERSO -->
+          <div class="lb-card-back" aria-label="Détail du look 01">
+            <button class="lb-back-close" aria-label="Retourner la carte">✕</button>
+            <div class="lb-back-label">Look 01</div>
+            <div class="lb-back-title">La flânerie<br/>parisienne</div>
+            <div class="lb-back-items">
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-2.jpg" alt="Chemisier Iris" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Chemisier Iris</div>
+                  <div class="lb-back-item-ref">Réf. MC-H01</div>
+                  <div class="lb-back-item-price">55 €</div>
+                </div>
+              </div>
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-3.jpg" alt="Jupe Violette" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Jupe Violette</div>
+                  <div class="lb-back-item-ref">Réf. MC-B01</div>
+                  <div class="lb-back-item-price">49 €</div>
+                </div>
+              </div>
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-6.jpg" alt="Sac Camille" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Sac Camille</div>
+                  <div class="lb-back-item-ref">Réf. MC-A01</div>
+                  <div class="lb-back-item-price">89 €</div>
+                </div>
+              </div>
+            </div>
+            <div class="lb-back-total">
+              <span class="lb-back-total-label">Total look</span>
+              <span class="lb-back-total-price">193 €</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="lb-slide">
-        <img src="photo-hero-2.jpeg" alt="Look 2 Maison Céleste — Apéro en terrasse" loading="lazy" width="360" height="540"/>
-        <div class="lb-slide-caption"><span>Look 02</span><p>Apéro en terrasse</p></div>
+
+      <!-- LOOK 02 — Apéro en terrasse -->
+      <div class="lb-slide" role="article" aria-label="Look 02 — Apéro en terrasse">
+        <div class="lb-card-inner">
+          <div class="lb-card-front">
+            <img src="photo-hero-2.jpeg" alt="Look 02 — Apéro en terrasse, Maison Céleste" loading="lazy" width="360" height="480"/>
+            <div class="lb-card-front-caption">
+              <span>Look 02</span>
+              <p>Apéro en terrasse</p>
+            </div>
+            <div class="lb-flip-hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            </div>
+          </div>
+          <div class="lb-card-back" aria-label="Détail du look 02">
+            <button class="lb-back-close" aria-label="Retourner la carte">✕</button>
+            <div class="lb-back-label">Look 02</div>
+            <div class="lb-back-title">Apéro<br/>en terrasse</div>
+            <div class="lb-back-items">
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-1.webp" alt="Robe Capucine" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Robe Capucine</div>
+                  <div class="lb-back-item-ref">Réf. MC-R01</div>
+                  <div class="lb-back-item-price">79 €</div>
+                </div>
+              </div>
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-6.jpg" alt="Sac Camille" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Sac Camille</div>
+                  <div class="lb-back-item-ref">Réf. MC-A01</div>
+                  <div class="lb-back-item-price">89 €</div>
+                </div>
+              </div>
+            </div>
+            <div class="lb-back-total">
+              <span class="lb-back-total-label">Total look</span>
+              <span class="lb-back-total-price">168 €</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="lb-slide">
-        <img src="photo-hero-3.png" alt="Look 3 Maison Céleste — Déjeuner dominical" loading="lazy" width="360" height="540"/>
-        <div class="lb-slide-caption"><span>Look 03</span><p>Déjeuner dominical</p></div>
+
+      <!-- LOOK 03 — Déjeuner dominical -->
+      <div class="lb-slide" role="article" aria-label="Look 03 — Déjeuner dominical">
+        <div class="lb-card-inner">
+          <div class="lb-card-front">
+            <img src="photo-hero-3.png" alt="Look 03 — Déjeuner dominical, Maison Céleste" loading="lazy" width="360" height="480"/>
+            <div class="lb-card-front-caption">
+              <span>Look 03</span>
+              <p>Déjeuner dominical</p>
+            </div>
+            <div class="lb-flip-hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            </div>
+          </div>
+          <div class="lb-card-back" aria-label="Détail du look 03">
+            <button class="lb-back-close" aria-label="Retourner la carte">✕</button>
+            <div class="lb-back-label">Look 03</div>
+            <div class="lb-back-title">Déjeuner<br/>dominical</div>
+            <div class="lb-back-items">
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-4.jpg" alt="Ensemble Pivoine" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Ensemble Pivoine</div>
+                  <div class="lb-back-item-ref">Réf. MC-R02</div>
+                  <div class="lb-back-item-price">135 €</div>
+                </div>
+              </div>
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-6.jpg" alt="Sac Camille" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Sac Camille</div>
+                  <div class="lb-back-item-ref">Réf. MC-A01</div>
+                  <div class="lb-back-item-price">89 €</div>
+                </div>
+              </div>
+            </div>
+            <div class="lb-back-total">
+              <span class="lb-back-total-label">Total look</span>
+              <span class="lb-back-total-price">224 €</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="lb-slide">
-        <img src="photo-1.webp" alt="Look 4 Maison Céleste — Soirée en ville" loading="lazy" width="360" height="540"/>
-        <div class="lb-slide-caption"><span>Look 04</span><p>Soirée en ville</p></div>
+
+      <!-- LOOK 04 — Soirée en ville -->
+      <div class="lb-slide" role="article" aria-label="Look 04 — Soirée en ville">
+        <div class="lb-card-inner">
+          <div class="lb-card-front">
+            <img src="photo-1.webp" alt="Look 04 — Soirée en ville, Maison Céleste" loading="lazy" width="360" height="480"/>
+            <div class="lb-card-front-caption">
+              <span>Look 04</span>
+              <p>Soirée en ville</p>
+            </div>
+            <div class="lb-flip-hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            </div>
+          </div>
+          <div class="lb-card-back" aria-label="Détail du look 04">
+            <button class="lb-back-close" aria-label="Retourner la carte">✕</button>
+            <div class="lb-back-label">Look 04</div>
+            <div class="lb-back-title">Soirée<br/>en ville</div>
+            <div class="lb-back-items">
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-1.webp" alt="Blazer Aurore" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Blazer Aurore</div>
+                  <div class="lb-back-item-ref">Réf. MC-V01</div>
+                  <div class="lb-back-item-price">115 €</div>
+                </div>
+              </div>
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-3.jpg" alt="Pantalon Céleste" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Pantalon Céleste</div>
+                  <div class="lb-back-item-ref">Réf. MC-B02</div>
+                  <div class="lb-back-item-price">72 €</div>
+                </div>
+              </div>
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-5.jpg" alt="Pull Rosée" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Pull Rosée</div>
+                  <div class="lb-back-item-ref">Réf. MC-H02</div>
+                  <div class="lb-back-item-price">65 €</div>
+                </div>
+              </div>
+            </div>
+            <div class="lb-back-total">
+              <span class="lb-back-total-label">Total look</span>
+              <span class="lb-back-total-price">252 €</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="lb-slide">
-        <img src="photo-2.jpg" alt="Look 5 Maison Céleste — Week-end à la campagne" loading="lazy" width="360" height="540"/>
-        <div class="lb-slide-caption"><span>Look 05</span><p>Week-end à la campagne</p></div>
+
+      <!-- LOOK 05 — Week-end à la campagne -->
+      <div class="lb-slide" role="article" aria-label="Look 05 — Week-end à la campagne">
+        <div class="lb-card-inner">
+          <div class="lb-card-front">
+            <img src="photo-2.jpg" alt="Look 05 — Week-end à la campagne, Maison Céleste" loading="lazy" width="360" height="480"/>
+            <div class="lb-card-front-caption">
+              <span>Look 05</span>
+              <p>Week-end à la campagne</p>
+            </div>
+            <div class="lb-flip-hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            </div>
+          </div>
+          <div class="lb-card-back" aria-label="Détail du look 05">
+            <button class="lb-back-close" aria-label="Retourner la carte">✕</button>
+            <div class="lb-back-label">Look 05</div>
+            <div class="lb-back-title">Week-end<br/>à la campagne</div>
+            <div class="lb-back-items">
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-5.jpg" alt="Pull Rosée" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Pull Rosée</div>
+                  <div class="lb-back-item-ref">Réf. MC-H02</div>
+                  <div class="lb-back-item-price">65 €</div>
+                </div>
+              </div>
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-3.jpg" alt="Jupe Violette" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Jupe Violette</div>
+                  <div class="lb-back-item-ref">Réf. MC-B01</div>
+                  <div class="lb-back-item-price">49 €</div>
+                </div>
+              </div>
+            </div>
+            <div class="lb-back-total">
+              <span class="lb-back-total-label">Total look</span>
+              <span class="lb-back-total-price">114 €</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="lb-slide">
-        <img src="photo-3.jpg" alt="Look 6 Maison Céleste — Tenue de cérémonie" loading="lazy" width="360" height="540"/>
-        <div class="lb-slide-caption"><span>Look 06</span><p>Tenue de cérémonie</p></div>
+
+      <!-- LOOK 06 — Tenue de cérémonie -->
+      <div class="lb-slide" role="article" aria-label="Look 06 — Tenue de cérémonie">
+        <div class="lb-card-inner">
+          <div class="lb-card-front">
+            <img src="photo-3.jpg" alt="Look 06 — Tenue de cérémonie, Maison Céleste" loading="lazy" width="360" height="480"/>
+            <div class="lb-card-front-caption">
+              <span>Look 06</span>
+              <p>Tenue de cérémonie</p>
+            </div>
+            <div class="lb-flip-hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            </div>
+          </div>
+          <div class="lb-card-back" aria-label="Détail du look 06">
+            <button class="lb-back-close" aria-label="Retourner la carte">✕</button>
+            <div class="lb-back-label">Look 06</div>
+            <div class="lb-back-title">Tenue<br/>de cérémonie</div>
+            <div class="lb-back-items">
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-4.jpg" alt="Ensemble Pivoine" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Ensemble Pivoine</div>
+                  <div class="lb-back-item-ref">Réf. MC-R02</div>
+                  <div class="lb-back-item-price">135 €</div>
+                </div>
+              </div>
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-1.webp" alt="Blazer Aurore" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Blazer Aurore</div>
+                  <div class="lb-back-item-ref">Réf. MC-V01</div>
+                  <div class="lb-back-item-price">115 €</div>
+                </div>
+              </div>
+              <div class="lb-back-item">
+                <img class="lb-back-item-img" src="photo-6.jpg" alt="Sac Camille" loading="lazy" width="48" height="60"/>
+                <div class="lb-back-item-info">
+                  <div class="lb-back-item-name">Sac Camille</div>
+                  <div class="lb-back-item-ref">Réf. MC-A01</div>
+                  <div class="lb-back-item-price">89 €</div>
+                </div>
+              </div>
+            </div>
+            <div class="lb-back-total">
+              <span class="lb-back-total-label">Total look</span>
+              <span class="lb-back-total-price">339 €</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+
+    </div><!-- /lb-track -->
+
     <button class="lb-arrow next" id="lb-next" aria-label="Suivant">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18l6-6-6-6"/></svg>
     </button>
   </div>
 </section>
 
-<!-- ═══════════ BANNIÈRE HISTOIRE
-     Section sémantique enrichie pour LLMs (GEO)
-     ════════════════════════════ -->
+<!-- ═══════════ BANNIÈRE HISTOIRE ═══════════ -->
 <section id="banniere" class="fade" aria-labelledby="histoire-title">
   <div class="ban-img">
     <img src="photo-boutique.jpg" alt="Intérieur boutique Maison Céleste — 8 rue Auguste Comte, Lyon 2e" loading="lazy" width="900" height="800"/>
@@ -1393,7 +1741,6 @@
     <p style="font-size:.88rem;color:var(--ink2);margin-top:.75rem">★★★★★ 4,9/5 · 127 avis Google vérifiés</p>
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;max-width:1000px;margin:0 auto" class="fade">
-
     <figure itemscope itemtype="https://schema.org/Review" style="background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin:0">
       <div aria-hidden="true" style="color:var(--gold);font-size:1rem;margin-bottom:.75rem">★★★★★</div>
       <blockquote itemprop="reviewBody" style="font-size:.9rem;color:var(--ink2);line-height:1.75;margin:0 0 1rem">
@@ -1406,7 +1753,6 @@
         <meta itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" content="5"/>
       </figcaption>
     </figure>
-
     <figure itemscope itemtype="https://schema.org/Review" style="background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin:0">
       <div aria-hidden="true" style="color:var(--gold);font-size:1rem;margin-bottom:.75rem">★★★★★</div>
       <blockquote itemprop="reviewBody" style="font-size:.9rem;color:var(--ink2);line-height:1.75;margin:0 0 1rem">
@@ -1419,7 +1765,6 @@
         <meta itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" content="5"/>
       </figcaption>
     </figure>
-
     <figure itemscope itemtype="https://schema.org/Review" style="background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin:0">
       <div aria-hidden="true" style="color:var(--gold);font-size:1rem;margin-bottom:.75rem">★★★★★</div>
       <blockquote itemprop="reviewBody" style="font-size:.9rem;color:var(--ink2);line-height:1.75;margin:0 0 1rem">
@@ -1432,7 +1777,6 @@
         <meta itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" content="5"/>
       </figcaption>
     </figure>
-
   </div>
   <div class="fade" style="text-align:center;margin-top:2rem">
     <a href="https://maps.google.com/?q=Maison+C%C3%A9leste+Lyon" target="_blank" rel="noopener" style="font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);border-bottom:1px solid var(--border);padding-bottom:2px;transition:color .2s,border-color .2s" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold)'" onmouseout="this.style.color='';this.style.borderColor=''">
@@ -1441,10 +1785,7 @@
   </div>
 </section>
 
-<!-- ═══════════ FAQ — GEO-optimisée pour IA génératives
-     Chaque question est dans un <article> sémantique avec ID
-     pour faciliter le scraping et la citation par les LLMs
-     ════════════════════════════ -->
+<!-- ═══════════ FAQ ═══════════ -->
 <section id="faq" aria-labelledby="faq-title" style="padding:4rem 5vw;max-width:800px;margin:0 auto">
   <div class="fade" style="margin-bottom:2rem">
     <span class="section-tag">Questions fréquentes</span>
@@ -1467,7 +1808,6 @@
       flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
       border: 1px solid var(--border); background: transparent;
       display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s, border-color 0.2s;
       font-size: 1.2rem; color: var(--ink3); line-height: 1;
       transition: all 0.3s ease;
     }
@@ -1486,79 +1826,72 @@
   </style>
 
   <div class="fade" id="faq-accordion">
-
     <div class="faq-accordion-item">
       <button class="faq-accordion-btn" aria-expanded="false">
         <span class="faq-accordion-q">Quels types de vêtements trouve-t-on chez Maison Céleste ?</span>
         <span class="faq-accordion-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-accordion-body">
-        <div class="faq-accordion-body-inner" id="faq-vetements">
+        <div class="faq-accordion-body-inner">
           Maison Céleste propose une sélection complète de mode féminine : robes (Robe Capucine, Ensemble Pivoine), hauts et chemisiers (Chemisier Iris, Pull Rosée), bas (Jupe Violette, Pantalon Céleste), vestes et blazers (Blazer Aurore), et accessoires (Sac Camille). Les prix s'échelonnent de 49 € à 135 €. La collection est renouvelée chaque saison avec des pièces sélectionnées lors de showrooms parisiens et chez des créateurs européens indépendants.
         </div>
       </div>
     </div>
-
     <div class="faq-accordion-item">
       <button class="faq-accordion-btn" aria-expanded="false">
         <span class="faq-accordion-q">Où se trouve la boutique Maison Céleste à Lyon ?</span>
         <span class="faq-accordion-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-accordion-body">
-        <div class="faq-accordion-body-inner" id="faq-adresse">
+        <div class="faq-accordion-body-inner">
           La boutique est au <strong>8 rue Auguste Comte, 69002 Lyon</strong>, dans le 2e arrondissement, à deux pas de la place Bellecour. Accessible par le métro Bellecour (lignes A et D). <a href="https://maps.google.com/?q=8+rue+Auguste+Comte+Lyon+69002" target="_blank" rel="noopener" style="color:var(--gold)">Voir le plan →</a>
         </div>
       </div>
     </div>
-
     <div class="faq-accordion-item">
       <button class="faq-accordion-btn" aria-expanded="false">
         <span class="faq-accordion-q">Où se garer près de Maison Céleste ?</span>
         <span class="faq-accordion-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-accordion-body">
-        <div class="faq-accordion-body-inner" id="faq-parking">
+        <div class="faq-accordion-body-inner">
           Plusieurs parkings sont accessibles à pied depuis la boutique : <strong>Parking Bellecour</strong> (place Bellecour, 5 min), <strong>Parking des Cordeliers</strong> (rue Mercière, 4 min), et <strong>Parking Célestins</strong> (quai des Célestins). En transports en commun, la station de métro <strong>Bellecour</strong> (lignes A et D) se situe à 2 minutes à pied du 8 rue Auguste Comte.
         </div>
       </div>
     </div>
-
     <div class="faq-accordion-item">
       <button class="faq-accordion-btn" aria-expanded="false">
         <span class="faq-accordion-q">Quels sont les horaires d'ouverture ?</span>
         <span class="faq-accordion-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-accordion-body">
-        <div class="faq-accordion-body-inner" id="faq-horaires">
+        <div class="faq-accordion-body-inner">
           La boutique est ouverte <strong>du lundi au samedi de 10h à 19h</strong>. Fermée le dimanche. Pour une question rapide, vous pouvez appeler le <a href="tel:+33472000000" style="color:var(--gold)">04 72 00 00 00</a> du lundi au samedi de 10h à 18h30.
         </div>
       </div>
     </div>
-
     <div class="faq-accordion-item">
       <button class="faq-accordion-btn" aria-expanded="false">
         <span class="faq-accordion-q">Proposez-vous des conseils personnalisés ?</span>
         <span class="faq-accordion-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-accordion-body">
-        <div class="faq-accordion-body-inner" id="faq-conseils">
+        <div class="faq-accordion-body-inner">
           Oui, c'est l'ADN de Maison Céleste. Élise Morel et son équipe vous accompagnent pour choisir votre taille, composer une tenue complète ou trouver un cadeau original. Pas besoin de rendez-vous — venez directement au <strong>8 rue Auguste Comte, Lyon 69002</strong>.
         </div>
       </div>
     </div>
-
     <div class="faq-accordion-item">
       <button class="faq-accordion-btn" aria-expanded="false">
         <span class="faq-accordion-q">Peut-on connaître les disponibilités avant de se déplacer ?</span>
         <span class="faq-accordion-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-accordion-body">
-        <div class="faq-accordion-body-inner" id="faq-disponibilites">
+        <div class="faq-accordion-body-inner">
           Oui — appelez-nous au <a href="tel:+33472000000" style="color:var(--gold)">04 72 00 00 00</a> ou utilisez la fonction <strong>Favoris</strong> sur ce site pour noter les références qui vous intéressent (réf. MC-R01 à MC-A01), puis contactez-nous pour vérifier les tailles disponibles avant votre visite.
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -1572,42 +1905,12 @@
     <h2 class="section-title" id="instagram-title">Notre <em>univers</em></h2>
   </div>
   <div class="ig-grid fade">
-    <div class="ig-item">
-      <img src="photo-1.webp" alt="Robe Capucine portée en boutique Maison Céleste Lyon" loading="lazy" width="300" height="300"/>
-      <div class="ig-item-overlay" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </div>
-    </div>
-    <div class="ig-item">
-      <img src="photo-2.jpg" alt="Chemisier Iris nouvelle collection printemps Maison Céleste" loading="lazy" width="300" height="300"/>
-      <div class="ig-item-overlay" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </div>
-    </div>
-    <div class="ig-item">
-      <img src="photo-3.jpg" alt="Look jupe et blazer sélection mode femme Lyon 2e arrondissement" loading="lazy" width="300" height="300"/>
-      <div class="ig-item-overlay" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </div>
-    </div>
-    <div class="ig-item">
-      <img src="photo-4.jpg" alt="Ensemble Pivoine tenue de cérémonie Maison Céleste Lyon" loading="lazy" width="300" height="300"/>
-      <div class="ig-item-overlay" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </div>
-    </div>
-    <div class="ig-item">
-      <img src="photo-5.jpg" alt="Sac Camille et accessoires boutique mode femme Lyon" loading="lazy" width="300" height="300"/>
-      <div class="ig-item-overlay" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </div>
-    </div>
-    <div class="ig-item">
-      <img src="photo-6.jpg" alt="Vitrine Maison Céleste rue Auguste Comte Lyon 2e" loading="lazy" width="300" height="300"/>
-      <div class="ig-item-overlay" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </div>
-    </div>
+    <div class="ig-item"><img src="photo-1.webp" alt="Robe Capucine portée en boutique Maison Céleste Lyon" loading="lazy" width="300" height="300"/><div class="ig-item-overlay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div></div>
+    <div class="ig-item"><img src="photo-2.jpg" alt="Chemisier Iris nouvelle collection printemps Maison Céleste" loading="lazy" width="300" height="300"/><div class="ig-item-overlay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div></div>
+    <div class="ig-item"><img src="photo-3.jpg" alt="Look jupe et blazer sélection mode femme Lyon 2e arrondissement" loading="lazy" width="300" height="300"/><div class="ig-item-overlay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div></div>
+    <div class="ig-item"><img src="photo-4.jpg" alt="Ensemble Pivoine tenue de cérémonie Maison Céleste Lyon" loading="lazy" width="300" height="300"/><div class="ig-item-overlay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div></div>
+    <div class="ig-item"><img src="photo-5.jpg" alt="Sac Camille et accessoires boutique mode femme Lyon" loading="lazy" width="300" height="300"/><div class="ig-item-overlay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div></div>
+    <div class="ig-item"><img src="photo-6.jpg" alt="Vitrine Maison Céleste rue Auguste Comte Lyon 2e" loading="lazy" width="300" height="300"/><div class="ig-item-overlay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div></div>
   </div>
   <div class="ig-cta fade">
     <a href="https://www.instagram.com/maison.celeste.lyon/" target="_blank" rel="noopener" aria-label="Suivre Maison Céleste sur Instagram @maison.celeste.lyon">
@@ -1617,7 +1920,7 @@
   </div>
 </section>
 
-<!-- ═══════════ INFOS / NAP — Données locales structurées ═══════════ -->
+<!-- ═══════════ INFOS / NAP ═══════════ -->
 <section id="infos" aria-labelledby="infos-title">
   <div class="info-cell fade">
     <span class="info-label">Venir nous voir</span>
@@ -1648,7 +1951,7 @@
   </div>
 </section>
 
-<!-- ═══════════ FOOTER — EEAT : liens légaux réels, no href="#" ═══════════ -->
+<!-- ═══════════ FOOTER ═══════════ -->
 <footer>
   <div class="footer-inner">
     <div>
@@ -1671,7 +1974,6 @@
   <div class="footer-bottom">
     <span>© <span id="yr"></span> Maison Céleste · 8 rue Auguste Comte, 69002 Lyon · <a href="tel:+33472000000" style="color:inherit">04 72 00 00 00</a></span>
     <ul class="footer-legal" style="display:flex;gap:1.5rem">
-      <!-- EEAT : ancres propres vers pages légales dédiées, pas de href="#" -->
       <li><a href="mentions-legales.html">Mentions légales</a></li>
       <li><a href="politique-de-confidentialite.html">Politique de confidentialité</a></li>
     </ul>
@@ -1761,9 +2063,7 @@ try { favs = JSON.parse(localStorage.getItem('mc_favs') || '{}'); } catch(e) {}
 function saveFavs() {
   try { localStorage.setItem('mc_favs', JSON.stringify(favs)); } catch(e) {}
 }
-
 function getFavCount() { return Object.keys(favs).length }
-
 function updateFavNav() {
   const count = getFavCount();
   const btn = document.getElementById('fav-toggle');
@@ -1773,22 +2073,17 @@ function updateFavNav() {
   btn.classList.toggle('has-favs', count > 0);
   btn.setAttribute('aria-label', `Mes favoris (${count} article${count !== 1 ? 's' : ''})`);
 }
-
 function renderFavDrawer() {
   const list = document.getElementById('fav-list');
   const empty = document.getElementById('fav-empty');
   const footer = document.getElementById('fav-footer');
   const label = document.getElementById('fav-count-label');
   const count = getFavCount();
-
   label.textContent = count > 0 ? `(${count})` : '';
   footer.style.display = count > 0 ? 'flex' : 'none';
-
   list.querySelectorAll('.fav-item').forEach(el => el.remove());
   empty.style.display = count === 0 ? 'flex' : 'none';
-
   if (count === 0) return;
-
   Object.values(favs).forEach(item => {
     const div = document.createElement('div');
     div.className = 'fav-item';
@@ -1804,7 +2099,6 @@ function renderFavDrawer() {
     `;
     list.appendChild(div);
   });
-
   list.querySelectorAll('.fav-remove').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.dataset.id;
@@ -1816,7 +2110,6 @@ function renderFavDrawer() {
     });
   });
 }
-
 function updateFavButtons() {
   document.querySelectorAll('.prod-fav').forEach(btn => {
     const id = btn.dataset.id;
@@ -1827,7 +2120,6 @@ function updateFavButtons() {
     btn.setAttribute('aria-label', `${active ? 'Retirer' : 'Ajouter'} ${name} ${active ? 'des' : 'aux'} favoris`);
   });
 }
-
 let toastTimer;
 function showToast(added) {
   const toast = document.getElementById('toast');
@@ -1836,8 +2128,6 @@ function showToast(added) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
 }
-
-/* Boutons favoris produits */
 document.querySelectorAll('.prod-fav').forEach(btn => {
   btn.addEventListener('click', e => {
     e.stopPropagation();
@@ -1865,8 +2155,6 @@ document.querySelectorAll('.prod-fav').forEach(btn => {
     }
   });
 });
-
-/* Drawer open/close */
 const drawer = document.getElementById('fav-drawer');
 document.getElementById('fav-toggle').addEventListener('click', () => {
   renderFavDrawer();
@@ -1881,8 +2169,6 @@ document.getElementById('fav-overlay').addEventListener('click', () => {
   drawer.classList.remove('open');
   document.body.style.overflow = '';
 });
-
-/* Copier les références */
 document.getElementById('fav-copy-btn').addEventListener('click', () => {
   const refs = Object.values(favs).map(f => `${f.name} — ${f.ref} — ${f.price}`).join('\n');
   if (navigator.clipboard) {
@@ -1895,7 +2181,6 @@ document.getElementById('fav-copy-btn').addEventListener('click', () => {
     });
   }
 });
-
 document.getElementById('fav-clear-btn').addEventListener('click', () => {
   if (confirm('Effacer tous les favoris ?')) {
     favs = {};
@@ -1905,8 +2190,6 @@ document.getElementById('fav-clear-btn').addEventListener('click', () => {
     updateFavButtons();
   }
 });
-
-/* Init */
 updateFavNav();
 updateFavButtons();
 
@@ -1926,28 +2209,62 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-/* ── Lookbook scroll drag ── */
-const track = document.getElementById('lb-track');
-let isDown = false, startX, scrollLeft;
+/* ── LOOKBOOK FLIP CARDS ── */
+const lbTrack = document.getElementById('lb-track');
+const lbSlides = document.querySelectorAll('.lb-slide');
 
-track.addEventListener('mousedown', e => {
-  isDown = true; track.classList.add('active');
-  startX = e.pageX - track.offsetLeft;
-  scrollLeft = track.scrollLeft;
+// Détecte si l'appareil dispose d'un vrai hover (desktop)
+const hasHover = window.matchMedia('(hover: hover)').matches;
+
+lbSlides.forEach(slide => {
+  // Sur mobile (pas de hover) : toggle au clic sur la carte entière
+  if (!hasHover) {
+    slide.addEventListener('click', (e) => {
+      // Ne pas flipper si on clique le bouton ✕
+      if (e.target.closest('.lb-back-close')) return;
+      slide.classList.toggle('flipped');
+    });
+  } else {
+    // Sur desktop : clic permet aussi de verrouiller le flip
+    slide.addEventListener('click', (e) => {
+      if (e.target.closest('.lb-back-close')) {
+        slide.classList.remove('flipped');
+        return;
+      }
+      slide.classList.toggle('flipped');
+    });
+  }
+
+  // Bouton ✕ au verso : retourne toujours
+  const closeBtn = slide.querySelector('.lb-back-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      slide.classList.remove('flipped');
+    });
+  }
 });
-['mouseleave','mouseup'].forEach(ev => track.addEventListener(ev, () => { isDown = false; }));
-track.addEventListener('mousemove', e => {
-  if (!isDown) return;
+
+// Drag-to-scroll lookbook
+let lbIsDown = false, lbStartX, lbScrollLeft;
+lbTrack.addEventListener('mousedown', e => {
+  lbIsDown = true;
+  lbStartX = e.pageX - lbTrack.offsetLeft;
+  lbScrollLeft = lbTrack.scrollLeft;
+});
+['mouseleave','mouseup'].forEach(ev => lbTrack.addEventListener(ev, () => { lbIsDown = false; }));
+lbTrack.addEventListener('mousemove', e => {
+  if (!lbIsDown) return;
   e.preventDefault();
-  const x = e.pageX - track.offsetLeft;
-  track.scrollLeft = scrollLeft - (x - startX) * 1.2;
+  const x = e.pageX - lbTrack.offsetLeft;
+  lbTrack.scrollLeft = lbScrollLeft - (x - lbStartX) * 1.2;
 });
 
 document.getElementById('lb-prev').addEventListener('click', () => {
-  track.scrollBy({ left: -360, behavior: 'smooth' });
+  lbTrack.scrollBy({ left: -380, behavior: 'smooth' });
 });
 document.getElementById('lb-next').addEventListener('click', () => {
-  track.scrollBy({ left: 360, behavior: 'smooth' });
+  lbTrack.scrollBy({ left: 380, behavior: 'smooth' });
 });
 
 /* ── Escape key ── */
@@ -1959,6 +2276,8 @@ document.addEventListener('keydown', e => {
     burger.setAttribute('aria-expanded', 'false');
     mob.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    // Retourne toutes les flip cards
+    lbSlides.forEach(s => s.classList.remove('flipped'));
   }
 });
 
