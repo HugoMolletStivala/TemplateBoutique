@@ -993,20 +993,24 @@
       .nav-link { padding: 0 .9rem; font-size: .63rem }
     }
     @media (max-width: 900px) {
-      .nav-bottom { display: none }
-      .nav-top-left .nav-itineraire { display: none }
-      .burger { display: flex }
-      .nav-top-inner {
-        display: flex; position: relative;
-        justify-content: space-between; align-items: center;
-      }
-      .nav-top-left { flex: 1 }
-      .nav-top-right { flex: 1; justify-content: flex-end }
-      .nav-logo {
-        position: absolute; left: 50%; transform: translateX(-50%);
-        text-align: center; font-size: 1.4rem;
-      }
-      .nav-logo small { display: none }
+  .nav-bottom { display: none }
+  .nav-top-left .nav-itineraire { display: none }
+  .burger { display: flex }
+  .nav-top-inner {
+    display: flex; position: relative;
+    justify-content: space-between; align-items: center;
+  }
+  .nav-top-left { flex: 0 0 auto; min-width: 0 }
+  .nav-top-right { flex: 0 0 auto; justify-content: flex-end; gap: .6rem }
+  .nav-logo {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    text-align: center; font-size: 1.4rem;
+    max-width: 42vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    pointer-events: none;
+  }
+  .nav-logo small { display: none }
+  #fav-toggle span:not(#fav-count) { display: none }
+  .nav-icon-btn span { display: none }
 
       #hero { height: 72svh }
       .hero-arrow { display: none }
@@ -1046,6 +1050,16 @@
       .hero-capsule { font-size: .6rem; padding: .6rem 1.2rem; gap: .7rem }
       .hero-capsule-line { width: 16px }
       .lb-hint { display: none }
+    }
+    @media (max-width: 420px) {
+  .nav-top { padding: 0 4vw }
+  .nav-top-inner { height: 64px }
+  .nav-logo { font-size: 1.05rem; max-width: 38vw }
+  #fav-toggle { font-size: 0; gap: 0 }
+  #fav-toggle svg { width: 20px; height: 20px }
+  #fav-count { font-size: .5rem; width: 13px; height: 13px }
+  .burger { padding: .3rem }
+  .nav-top-right { gap: .35rem }
     }
     @media (max-width: 400px) {
       .ig-grid { grid-template-columns: repeat(2, 1fr) }
