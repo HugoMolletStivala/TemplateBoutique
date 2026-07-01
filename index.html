@@ -791,6 +791,55 @@ footer { background: var(--ink); color: rgba(251,249,245,.45); padding: 3.5rem v
   #nav, .marquee-wrap, #preloader, #fav-drawer, #toast, #progress-bar { display: none }
   .fade { opacity: 1; transform: none }
 }
+/* ═══ MOBILE 2-COLONNES — Catalogue & Lookbook ═══ */
+@media (max-width: 768px) {
+
+  /* Catalogue */
+  .cat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+  }
+  .prod-info { padding: 0.85rem 0.8rem 1rem; }
+  .prod-cat { font-size: .5rem; margin-bottom: .25rem; }
+  .prod-name { font-size: .82rem; line-height: 1.25; }
+  .prod-ref { font-size: .52rem; margin-top: .15rem; }
+  .prod-footer { margin-top: .55rem; flex-wrap: wrap; gap: .3rem; }
+  .prod-price { font-size: .78rem; }
+  .prod-sizes { gap: .2rem; }
+  .prod-size { font-size: .5rem; padding: .12rem .32rem; }
+  .prod-badge { font-size: .48rem; padding: .22rem .6rem; top: .6rem; left: .6rem; }
+  .prod-fav {
+    width: 28px; height: 28px; top: .6rem; right: .6rem;
+    opacity: 1; transform: none; /* visible direct, pas de hover en tactile */
+  }
+  .prod-fav svg { width: 12px; height: 12px; }
+
+  .cat-filters { gap: .4rem; margin-bottom: 1.75rem; padding-bottom: 1.25rem; }
+  .filter-btn { font-size: .58rem; padding: .42rem 1rem; }
+
+  /* Lookbook */
+  .lb-track { grid-template-columns: repeat(2, 1fr); gap: 0.9rem; }
+  .lb-flip-hint { display: none; }
+
+  .lb-card-front img { height: calc(100% - 52px); }
+  .lb-card-front-caption { height: 52px; padding: .7rem .85rem .85rem; }
+  .lb-card-front-caption span { font-size: .5rem; }
+  .lb-card-front-caption p { font-size: .78rem; margin-top: .1rem; }
+
+  .lb-card-back { padding: 1.1rem 0.9rem; }
+  .lb-back-label { font-size: .48rem; }
+  .lb-back-title { font-size: .88rem; margin-bottom: .8rem; padding-bottom: .65rem; }
+  .lb-back-items { gap: .55rem; }
+  .lb-back-item { gap: .5rem; }
+  .lb-back-item-img { width: 32px; height: 42px; }
+  .lb-back-item-name { font-size: .68rem; }
+  .lb-back-item-ref { font-size: .46rem; }
+  .lb-back-item-price { font-size: .6rem; }
+  .lb-back-total { padding-top: .65rem; }
+  .lb-back-total-label { font-size: .5rem; }
+  .lb-back-total-price { font-size: .92rem; }
+  .lb-back-close { width: 22px; height: 22px; top: .7rem; right: .7rem; font-size: .7rem; }
+}
   </style>
 </head>
 <body>
